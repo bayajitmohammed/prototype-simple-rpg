@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://xv0nuq0wgwc2"]
+
+[ext_resource type="Script" uid="uid://cs5eviyw3fum8" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="SpriteFrames" uid="uid://kfn58eg66s5a" path="res://player/player_sprite_frames.tres" id="2_rkbax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
+
+[node name="Player" type="CharacterBody2D" unique_id=2029301136]
+script = ExtResource("1_oul6g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=337024541]
+sprite_frames = ExtResource("2_rkbax")
+animation = &"idle_up"
+autoplay = "idle_up"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1960295987]
+limit_left = 0
+limit_top = 0
+limit_right = 480
+limit_bottom = 360
+position_smoothing_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=754880935]
+position = Vector2(0, 18)
+shape = SubResource("RectangleShape2D_oul6g")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

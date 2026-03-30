@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dhd6sykskllr4"]
+
+[ext_resource type="Script" uid="uid://cjgqeuscn5skt" path="res://world.gd" id="1_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://bki0fl18j23nf" path="res://levels/level_0/level_0.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://xv0nuq0wgwc2" path="res://player/player.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://be4dsvgeagb34" path="res://levels/level_1/level_1.tscn" id="3_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://dh2nmut8c3myf" path="res://levels/level_2/level_2.tscn" id="5_2o6r5"]
+[ext_resource type="PackedScene" uid="uid://kqfvk7k3s8ma" path="res://levels/level_3/level_3.tscn" id="6_70uel"]
+[ext_resource type="PackedScene" uid="uid://cree25c2wuslo" path="res://levels/level_4/level_4.tscn" id="7_hiqwa"]
+[ext_resource type="PackedScene" uid="uid://bb37jbwkv7gno" path="res://levels/level_5/level_5.tscn" id="8_2u3nc"]
+[ext_resource type="PackedScene" uid="uid://b6xfixsjdvpmv" path="res://levels/level_6/level_6.tscn" id="9_udxuc"]
+[ext_resource type="PackedScene" uid="uid://dqxsa6rqcndps" path="res://levels/level_7/level_7.tscn" id="10_ikiii"]
+[ext_resource type="PackedScene" uid="uid://cng1sgugh83kn" path="res://levels/level_8/level_8.tscn" id="11_cbp6q"]
+[ext_resource type="PackedScene" uid="uid://bqd8kf34u48f5" path="res://levels/level_9/level_9.tscn" id="12_26xuy"]
+[ext_resource type="PackedScene" uid="uid://c6jlr0lx1p7r4" path="res://levels/level_10/level_10.tscn" id="13_bc84e"]
+
+[node name="World" type="Node2D" unique_id=1131332766]
+script = ExtResource("1_aqk2v")
+
+[node name="Levels" type="Node2D" parent="." unique_id=1008468852]
+
+[node name="Level0" parent="Levels" unique_id=811767690 instance=ExtResource("1_f3sb7")]
+
+[node name="Level1" parent="Levels" unique_id=910038782 instance=ExtResource("3_tlwt5")]
+visible = false
+
+[node name="Level2" parent="Levels" unique_id=733423982 instance=ExtResource("5_2o6r5")]
+visible = false
+
+[node name="Level3" parent="Levels" unique_id=774288193 instance=ExtResource("6_70uel")]
+visible = false
+
+[node name="Level4" parent="Levels" unique_id=925765321 instance=ExtResource("7_hiqwa")]
+visible = false
+
+[node name="Level5" parent="Levels" unique_id=1066267756 instance=ExtResource("8_2u3nc")]
+visible = false
+
+[node name="Level6" parent="Levels" unique_id=1938759928 instance=ExtResource("9_udxuc")]
+visible = false
+
+[node name="Level7" parent="Levels" unique_id=953537161 instance=ExtResource("10_ikiii")]
+visible = false
+
+[node name="Level8" parent="Levels" unique_id=195765404 instance=ExtResource("11_cbp6q")]
+visible = false
+
+[node name="Level9" parent="Levels" unique_id=685244625 instance=ExtResource("12_26xuy")]
+visible = false
+
+[node name="Level10" parent="Levels" unique_id=1601864107 instance=ExtResource("13_bc84e")]
+visible = false
+
+[node name="SpawnPoint" type="Node2D" parent="." unique_id=688792124]
+
+[node name="Top" type="Marker2D" parent="SpawnPoint" unique_id=117199278]
+position = Vector2(228, 32)
+
+[node name="Bottom" type="Marker2D" parent="SpawnPoint" unique_id=2073999349]
+position = Vector2(228, 320)
+
+[node name="Left" type="Marker2D" parent="SpawnPoint" unique_id=275730801]
+position = Vector2(40, 180)
+
+[node name="Right" type="Marker2D" parent="SpawnPoint" unique_id=982381378]
+position = Vector2(440, 180)
+
+[node name="Player" parent="." unique_id=2029301136 instance=ExtResource("2_fj7yv")]
+position = Vector2(228, 313)

@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://ch83j3wiq6oii"]
+
+[ext_resource type="Script" uid="uid://wpxidos1xv1a" path="res://levels/boundary.gd" id="1_ypnc3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypnc3"]
+size = Vector2(480, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ercmn"]
+size = Vector2(480, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xencb"]
+size = Vector2(16, 360)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1e2bd"]
+size = Vector2(16, 360)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjilx"]
+size = Vector2(480, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e02e0"]
+size = Vector2(480, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tn6tq"]
+size = Vector2(8, 344)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt7sr"]
+size = Vector2(8, 344)
+
+[node name="Boundary" type="Node2D" unique_id=2035944034]
+script = ExtResource("1_ypnc3")
+
+[node name="Collision" type="Node2D" parent="." unique_id=1935931664]
+
+[node name="Top" type="StaticBody2D" parent="Collision" unique_id=1758769931]
+position = Vector2(240, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/Top" unique_id=1417082422]
+shape = SubResource("RectangleShape2D_ypnc3")
+
+[node name="Bottom" type="StaticBody2D" parent="Collision" unique_id=1693521378]
+position = Vector2(240, 368)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/Bottom" unique_id=160632604]
+shape = SubResource("RectangleShape2D_ercmn")
+
+[node name="Left" type="StaticBody2D" parent="Collision" unique_id=1264390752]
+position = Vector2(-8, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/Left" unique_id=1145786914]
+shape = SubResource("RectangleShape2D_xencb")
+
+[node name="Right" type="StaticBody2D" parent="Collision" unique_id=1869830644]
+position = Vector2(488, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/Right" unique_id=913332872]
+shape = SubResource("RectangleShape2D_1e2bd")
+
+[node name="Triggers" type="Node2D" parent="." unique_id=2014271934]
+
+[node name="Top" type="Area2D" parent="Triggers" unique_id=1641150922]
+position = Vector2(240, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Top" unique_id=462669584]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_tjilx")
+debug_color = Color(0.78751135, 0, 0.3781956, 0.41960785)
+
+[node name="Bottom" type="Area2D" parent="Triggers" unique_id=1441694646]
+position = Vector2(240, 352)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Bottom" unique_id=1333850101]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_e02e0")
+debug_color = Color(0.7882353, 0, 0.3764706, 0.41960785)
+
+[node name="Left" type="Area2D" parent="Triggers" unique_id=1078646620]
+position = Vector2(0, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Left" unique_id=2146366285]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_tn6tq")
+debug_color = Color(0.7882353, 0, 0.3764706, 0.41960785)
+
+[node name="Right" type="Area2D" parent="Triggers" unique_id=1974502487]
+position = Vector2(472, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Right" unique_id=1479890469]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_lt7sr")
+debug_color = Color(0.7882353, 0, 0.3764706, 0.41960785)
+
+[connection signal="body_entered" from="Triggers/Top" to="." method="_on_top_body_entered"]
+[connection signal="body_entered" from="Triggers/Bottom" to="." method="_on_bottom_body_entered"]
+[connection signal="body_entered" from="Triggers/Left" to="." method="_on_left_body_entered"]
+[connection signal="body_entered" from="Triggers/Right" to="." method="_on_right_body_entered"]

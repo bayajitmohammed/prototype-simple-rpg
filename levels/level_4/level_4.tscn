@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cree25c2wuslo"]
+
+[ext_resource type="Texture2D" uid="uid://bxh6ewb5m61ji" path="res://levels/level_4/lvl4.png" id="1_7n24t"]
+[ext_resource type="PackedScene" uid="uid://ch83j3wiq6oii" path="res://levels/boundary.tscn" id="2_5hcp0"]
+
+[node name="Level4" type="Node2D" unique_id=925765321]
+
+[node name="Lvl4" type="Sprite2D" parent="." unique_id=1652061091]
+position = Vector2(240, 180)
+texture = ExtResource("1_7n24t")
+
+[node name="Boundary" parent="." unique_id=2035944034 instance=ExtResource("2_5hcp0")]
+next_level_left = "Level3"
+next_level_right = "Level5"
