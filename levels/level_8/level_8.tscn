@@ -6,7 +6,8 @@
 [node name="Level8" type="Node2D" unique_id=195765404]
 
 [node name="Lvl8" type="Sprite2D" parent="." unique_id=1394060679]
-position = Vector2(240, 180)
+position = Vector2(720, 540)
+scale = Vector2(3, 3)
 texture = ExtResource("1_boxt2")
 
 [node name="Boundary" parent="." unique_id=2035944034 instance=ExtResource("2_h332y")]

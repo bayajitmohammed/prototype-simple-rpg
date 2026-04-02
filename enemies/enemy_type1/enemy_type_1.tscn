@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bgvt8ryinri6r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3avc6"]
+
+[node name="EnemyType1" type="CharacterBody2D" unique_id=32631299]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1064723997]
+shape = SubResource("RectangleShape2D_3avc6")
