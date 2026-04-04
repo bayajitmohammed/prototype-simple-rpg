@@ -47,8 +47,7 @@ func hit_enemy():
 	hit_count -= 1
 	if hit_count <= 0:
 		queue_free()
-	
-	
+
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name.contains("attack"):
 		attacking = false
