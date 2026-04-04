@@ -3,7 +3,8 @@ extends CharacterBody2D
 @export var speed: float = 100.0
 @export var chase_range: float = 250.0
 @export var attack_range: float = 80.0
-@export var attack_cooldown: float = 2.0
+@export var attack_cooldown: float = 0.8
+@export var hit_count: int = 3
 var can_attack: bool = true
 
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -25,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	velocity = Vector2.ZERO
 	if distance <= attack_range:
 		if can_attack:
-			start_attack()
+			start_attack_animation()
 	elif distance <= chase_range:
 		velocity = direction * speed
 		move_and_slide()
@@ -36,11 +37,17 @@ func _physics_process(delta: float) -> void:
 	animation_tree.set("parameters/Walk/blend_position", last_direction)
 	animation_tree.set("parameters/Attack/blend_position", last_direction)
 	
-func start_attack():
+func start_attack_animation():
 	attacking = true
 	can_attack = false
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
+	
+func hit_enemy():
+	hit_count -= 1
+	if hit_count <= 0:
+		queue_free()
+	
 	
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name.contains("attack"):

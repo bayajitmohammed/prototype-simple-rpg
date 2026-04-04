@@ -9,7 +9,7 @@ var last_direction: Vector2 = Vector2(0,-1)
 var attacking = false
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * speed
@@ -29,3 +29,9 @@ func _physics_process(delta):
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name.contains("attack"):
 		attacking = false
+
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	print(body.name)
+	if body.name == "Soldier":
+		body.hit_enemy()

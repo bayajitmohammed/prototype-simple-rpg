@@ -2,44 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cs5eviyw3fum8" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Texture2D" uid="uid://cjpxn412txt7f" path="res://player/spritesheet.png" id="3_g1dw6"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://oamm137knvae" path="res://player/player_node_state_machine.tres" id="4_qjkh3"]
-[ext_resource type="AnimationLibrary" uid="uid://c3ku2cxrdbiqi" path="res://player/player.res" id="4_yw30f"]
-
-[sub_resource type="Animation" id="Animation_qjkh3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(149, 590, 23, 47)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -24)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_g6k8r"]
-_data = {
-&"RESET": SubResource("Animation_qjkh3")
-}
+[ext_resource type="AnimationLibrary" uid="uid://g0lyfk5ri6e8" path="res://common/character_animation.res" id="3_yw30f"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://d07ias1lcop5t" path="res://common/character_animation_tree.tres" id="4_yw30f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
+size = Vector2(20, 15)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yw30f"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw30f"]
+size = Vector2(0, 0)
 
 [node name="Player" type="CharacterBody2D" unique_id=2029301136 groups=["player"]]
 script = ExtResource("1_oul6g")
@@ -48,23 +18,22 @@ script = ExtResource("1_oul6g")
 position = Vector2(0, -24)
 texture = ExtResource("3_g1dw6")
 region_enabled = true
-region_rect = Rect2(149, 590, 23, 47)
+region_rect = Rect2(21, 590, 23, 48)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=692326685]
-libraries/ = SubResource("AnimationLibrary_g6k8r")
-libraries/player = ExtResource("4_yw30f")
-autoplay = &"player/idle_up"
+libraries/charactor_animation = ExtResource("3_yw30f")
+autoplay = &"charactor_animation/idle_up"
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1203354962]
-tree_root = ExtResource("4_qjkh3")
+tree_root = ExtResource("4_yw30f")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Attack/blend_position = Vector2(0.9961796, 0.052132726)
-parameters/Idle/blend_position = Vector2(-0.0028653145, -1)
+parameters/Idle/blend_position = Vector2(-0.9960513, 0.015105724)
 parameters/Walk/blend_position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=754880935]
-position = Vector2(0, -10)
+position = Vector2(0, -17.5)
 shape = SubResource("RectangleShape2D_oul6g")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1960295987]
@@ -76,9 +45,10 @@ position_smoothing_enabled = true
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=899630939]
 monitoring = false
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=196432604]
-shape = SubResource("CircleShape2D_yw30f")
+shape = SubResource("RectangleShape2D_yw30f")
+debug_color = Color(0.8968222, 0.29463205, 0.3131845, 0.41960785)
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
