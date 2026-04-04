@@ -15,5 +15,5 @@ texture = ExtResource("1_pgvl5")
 next_level_top = "Level1"
 
 [node name="Soldier" parent="." unique_id=32631299 instance=ExtResource("3_lm2rq")]
-position = Vector2(1022, 751)
-scale = Vector2(2.6399963, 2.6399963)
+position = Vector2(894, 649)
+scale = Vector2(2.6800025, 2.6800025)

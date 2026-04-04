@@ -24,6 +24,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(17, 653, 30, 49)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, -24)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x2d85"]
 _data = {
@@ -99,6 +123,9 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_8t03j")
 blend_point_3/pos = Vector2(0, -1)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x2d85"]
+animation = &"character_animation/death"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g1dw6"]
 advance_mode = 2
 
@@ -126,6 +153,18 @@ advance_expression = "!attacking"
 advance_mode = 2
 advance_expression = "attacking"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ouu7"]
+advance_mode = 2
+advance_expression = "dying"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ppnfk"]
+advance_mode = 2
+advance_expression = "dying"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_otjoe"]
+advance_mode = 2
+advance_expression = "dying"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_t33xm"]
 states/Attack/node = SubResource("AnimationNodeBlendSpace2D_wodsf")
 states/Attack/position = Vector2(515, 111)
@@ -135,8 +174,10 @@ states/Idle/position = Vector2(332, 111)
 states/Start/position = Vector2(136, 111)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_2ieo8")
 states/Walk/position = Vector2(332, 0)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_g1dw6"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_yw30f"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_qjkh3"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_g6k8r"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_boad6"), "Attack", "Walk", SubResource("AnimationNodeStateMachineTransition_rgyib"), "Walk", "Attack", SubResource("AnimationNodeStateMachineTransition_hg6s5")]
-graph_offset = Vector2(-100, -98)
+states/character_animation_death/node = SubResource("AnimationNodeAnimation_x2d85")
+states/character_animation_death/position = Vector2(611, 287)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_g1dw6"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_yw30f"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_qjkh3"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_g6k8r"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_boad6"), "Attack", "Walk", SubResource("AnimationNodeStateMachineTransition_rgyib"), "Walk", "Attack", SubResource("AnimationNodeStateMachineTransition_hg6s5"), "Idle", "character_animation_death", SubResource("AnimationNodeStateMachineTransition_4ouu7"), "Walk", "character_animation_death", SubResource("AnimationNodeStateMachineTransition_ppnfk"), "Attack", "character_animation_death", SubResource("AnimationNodeStateMachineTransition_otjoe")]
+graph_offset = Vector2(29, -72)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3avc6"]
 size = Vector2(12, 30)
@@ -146,6 +187,7 @@ size = Vector2(0, 0)
 
 [node name="Soldier" type="CharacterBody2D" unique_id=32631299]
 script = ExtResource("1_vmuw0")
+texture = ExtResource("1_xknac")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=141878782]
 material = SubResource("ShaderMaterial_x2d85")
@@ -179,3 +221,4 @@ shape = SubResource("RectangleShape2D_x2d85")
 debug_color = Color(0.9044912, 0.28313276, 0.3106493, 0.41960785)
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
