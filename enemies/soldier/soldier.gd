@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var attack_cooldown: float = 0.8
 @export var hit_count: int = 3
 var can_attack: bool = true
-
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 var player: CharacterBody2D
 
@@ -29,7 +29,8 @@ func _physics_process(delta: float) -> void:
 			start_attack_animation()
 	elif distance <= chase_range:
 		velocity = direction * speed
-		move_and_slide()
+		if !attacking:
+			move_and_slide()
 		if velocity.length() > 0:
 			last_direction = direction
 	
@@ -45,6 +46,7 @@ func start_attack_animation():
 	
 func hit_enemy():
 	hit_count -= 1
+	animation_player.play("character_animation/hit_flash")
 	if hit_count <= 0:
 		queue_free()
 

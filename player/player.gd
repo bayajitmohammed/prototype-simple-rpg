@@ -15,9 +15,11 @@ var noise = FastNoiseLite.new()
 
 func _physics_process(_delta):
 	
+	
 	direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * speed
-	move_and_slide()
+	if !attacking:
+		move_and_slide()
 	
 	
 	if velocity:
