@@ -8,6 +8,7 @@ var last_direction: Vector2 = Vector2(0,-1)
 
 var attacking = false
 
+
 func _physics_process(delta):
 	
 	direction = Input.get_vector("left", "right", "up", "down")
