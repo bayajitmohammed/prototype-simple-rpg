@@ -42,7 +42,6 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
-	print(body.name)
 	if body.name == "Soldier":
 		camera_2d.screen_shake(8, 0.5)
 		frame_freeze(0.2, 0.3)
