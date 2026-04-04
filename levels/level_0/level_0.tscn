@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://lq5a381xhnws" path="res://levels/level_0/lvl0.png" id="1_pgvl5"]
 [ext_resource type="PackedScene" uid="uid://ch83j3wiq6oii" path="res://levels/boundary.tscn" id="2_pgvl5"]
 [ext_resource type="PackedScene" uid="uid://bgvt8ryinri6r" path="res://enemies/soldier/soldier.tscn" id="3_lm2rq"]
+[ext_resource type="PackedScene" uid="uid://u55rq1177fs" path="res://enemies/boss/boss.tscn" id="4_qq2ud"]
 
 [node name="Level0" type="Node2D" unique_id=811767690]
 
@@ -15,5 +16,9 @@ texture = ExtResource("1_pgvl5")
 next_level_top = "Level1"
 
 [node name="Soldier" parent="." unique_id=32631299 instance=ExtResource("3_lm2rq")]
-position = Vector2(894, 649)
+position = Vector2(1083, 686)
 scale = Vector2(2.6800025, 2.6800025)
+
+[node name="Boss" parent="." unique_id=524988487 instance=ExtResource("4_qq2ud")]
+position = Vector2(693, 499)
+scale = Vector2(0.96, 0.96)

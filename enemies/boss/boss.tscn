@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://u55rq1177fs"]
+
+[ext_resource type="Texture2D" uid="uid://dislsa4166kti" path="res://enemies/boss/Boss.png" id="1_ubujh"]
+[ext_resource type="Texture2D" uid="uid://mug343llfttr" path="res://enemies/boss/BossMagic1.png" id="2_vsebo"]
+[ext_resource type="Texture2D" uid="uid://cf0u13x0iai8t" path="res://enemies/boss/BossMagic2.png" id="3_opohk"]
+[ext_resource type="Texture2D" uid="uid://bqi8rl3plfjtq" path="res://enemies/boss/BossMagic3.png" id="4_auiwu"]
+[ext_resource type="Texture2D" uid="uid://cc3w6v7my77o0" path="res://enemies/boss/BossMagic4.png" id="5_h4k8w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubujh"]
+size = Vector2(248, 262)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vsebo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vsebo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_opohk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_auiwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h4k8w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Boss" type="StaticBody2D" unique_id=524988487]
+
+[node name="Boss" type="Sprite2D" parent="." unique_id=647674115]
+position = Vector2(15, -193)
+texture = ExtResource("1_ubujh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=149343173]
+position = Vector2(7, -140)
+shape = SubResource("RectangleShape2D_ubujh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2140337670]
+position = Vector2(160, -442)
+scale = Vector2(0.71666664, 0.71666664)
+sprite_frames = SubResource("SpriteFrames_vsebo")
+autoplay = "default"
