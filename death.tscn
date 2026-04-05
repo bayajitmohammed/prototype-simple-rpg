@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://futnnbhcgvw7"]
+
+[ext_resource type="Script" uid="uid://dbt77p07rs7tr" path="res://death.gd" id="1_qemge"]
+
+[node name="Death" type="Control" unique_id=2009475692]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qemge")
+
+[node name="Label" type="Label" parent="." unique_id=763849477]
+layout_mode = 0
+offset_left = 539.0
+offset_top = 312.0
+offset_right = 661.0
+offset_bottom = 335.0
+text = "You Died"
+
+[node name="Button" type="Button" parent="." unique_id=1335388269]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 410.0
+offset_right = 663.0
+offset_bottom = 441.0
+text = "Back to Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

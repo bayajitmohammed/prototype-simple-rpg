@@ -148,6 +148,9 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_8t03j")
 blend_point_3/pos = Vector2(0, -1)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wodsf"]
+animation = &"character_animation/death"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g1dw6"]
 advance_mode = 2
 
@@ -175,6 +178,18 @@ advance_expression = "!attacking"
 advance_mode = 2
 advance_expression = "attacking"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_32hag"]
+advance_mode = 2
+advance_expression = "dying"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tqiix"]
+advance_mode = 2
+advance_expression = "dying"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e7oew"]
+advance_mode = 2
+advance_expression = "dying"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_g1dw6"]
 states/Attack/node = SubResource("AnimationNodeBlendSpace2D_wodsf")
 states/Attack/position = Vector2(515, 111)
@@ -184,8 +199,10 @@ states/Idle/position = Vector2(332, 111)
 states/Start/position = Vector2(136, 111)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_2ieo8")
 states/Walk/position = Vector2(332, 0)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_g1dw6"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_yw30f"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_qjkh3"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_g6k8r"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_boad6"), "Attack", "Walk", SubResource("AnimationNodeStateMachineTransition_rgyib"), "Walk", "Attack", SubResource("AnimationNodeStateMachineTransition_hg6s5")]
-graph_offset = Vector2(-100, -98)
+states/character_animation_death/node = SubResource("AnimationNodeAnimation_wodsf")
+states/character_animation_death/position = Vector2(613, 207)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_g1dw6"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_yw30f"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_qjkh3"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_g6k8r"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_boad6"), "Attack", "Walk", SubResource("AnimationNodeStateMachineTransition_rgyib"), "Walk", "Attack", SubResource("AnimationNodeStateMachineTransition_hg6s5"), "Idle", "character_animation_death", SubResource("AnimationNodeStateMachineTransition_32hag"), "Attack", "character_animation_death", SubResource("AnimationNodeStateMachineTransition_tqiix"), "Walk", "character_animation_death", SubResource("AnimationNodeStateMachineTransition_e7oew")]
+graph_offset = Vector2(-153, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(12, 35)

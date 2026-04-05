@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bgvt8ryinri6r" path="res://enemies/soldier/soldier.tscn" id="3_lm2rq"]
 [ext_resource type="PackedScene" uid="uid://u55rq1177fs" path="res://enemies/boss/boss.tscn" id="4_qq2ud"]
 [ext_resource type="PackedScene" uid="uid://bh41aeoqq5y6w" path="res://player/health_pickup/health_pickup.tscn" id="5_wcjp7"]
+[ext_resource type="Texture2D" uid="uid://dkwkl5thb23vk" path="res://enemies/soldier/enemy2.png" id="6_ffevf"]
 
 [node name="Level0" type="Node2D" unique_id=811767690]
 
@@ -17,11 +18,20 @@ texture = ExtResource("1_pgvl5")
 next_level_top = "Level1"
 
 [node name="Soldier" parent="." unique_id=32631299 instance=ExtResource("3_lm2rq")]
-position = Vector2(1083, 686)
+position = Vector2(1119, 674)
 scale = Vector2(2.6800025, 2.6800025)
 
 [node name="Boss" parent="." unique_id=524988487 instance=ExtResource("4_qq2ud")]
 position = Vector2(709.99994, 338.99997)
 
 [node name="HealthPickup" parent="." unique_id=1466356536 instance=ExtResource("5_wcjp7")]
-position = Vector2(344, 752)
+position = Vector2(296, 834)
+
+[node name="HealthPickup2" parent="." unique_id=1976301545 instance=ExtResource("5_wcjp7")]
+position = Vector2(1106, 969)
+
+[node name="Soldier2" parent="." unique_id=1095747560 instance=ExtResource("3_lm2rq")]
+position = Vector2(296, 625)
+scale = Vector2(2.3736265, 2.3736265)
+texture = ExtResource("6_ffevf")
+max_health = 8

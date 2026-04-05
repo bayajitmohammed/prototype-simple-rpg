@@ -25,7 +25,7 @@ func  _process(_delta: float) -> void:
 	health_bar.visible = health < max_health
 
 func _physics_process(_delta):
-	if attacking:
+	if attacking or dying:
 		return
 	
 	direction = Input.get_vector("left", "right", "up", "down")
@@ -67,12 +67,12 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		attacking = false
 	if anim_name.contains("death"):
 		dying = false
-		# game ends
+		get_tree().change_scene_to_file("res://death.tscn")
 
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
-	if body.name == "Soldier":
+	if body.name == "Soldier" or body.name == "Boss":
 		camera_2d.screen_shake(8, 0.5)
 		body.hit_enemy()
 		body.play_hit_flash()

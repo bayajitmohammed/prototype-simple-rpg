@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://q41vjp0m7mvo"]
+
+[ext_resource type="Script" uid="uid://cojmnc0q2py2f" path="res://welcome.gd" id="1_hp420"]
+
+[node name="Welcome" type="Control" unique_id=708521403]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hp420")
+
+[node name="Label" type="Label" parent="." unique_id=411126888]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 160.0
+offset_right = 584.0
+offset_bottom = 183.0
+text = "My Game"
+
+[node name="Button" type="Button" parent="." unique_id=1511385830]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 209.0
+offset_right = 559.0
+offset_bottom = 240.0
+text = "Start"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

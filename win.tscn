@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c1176vxfr45ox"]
+
+[ext_resource type="Script" uid="uid://dl0k5leupibq7" path="res://win.gd" id="1_wao2c"]
+
+[node name="Win" type="Control" unique_id=1365458221]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wao2c")
+
+[node name="Label" type="Label" parent="." unique_id=1368006645]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 202.0
+offset_right = 607.0
+offset_bottom = 225.0
+text = "You win"
+
+[node name="Button" type="Button" parent="." unique_id=1934914469]
+layout_mode = 0
+offset_left = 457.0
+offset_top = 318.0
+offset_right = 572.0
+offset_bottom = 349.0
+text = "Back to menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

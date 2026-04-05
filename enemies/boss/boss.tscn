@@ -3,9 +3,21 @@
 [ext_resource type="Script" uid="uid://cq00rll4hwry8" path="res://enemies/boss/boss.gd" id="1_n18ml"]
 [ext_resource type="Texture2D" uid="uid://dislsa4166kti" path="res://enemies/boss/Boss.png" id="1_ubujh"]
 [ext_resource type="PackedScene" uid="uid://cbcxbnufei68m" path="res://enemies/boss/fire_ball.tscn" id="2_r4ron"]
+[ext_resource type="Shader" uid="uid://hmgql080rh0x" path="res://enemies/boss/boss.gdshader" id="3_8d0e3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vsebo"]
+shader = ExtResource("3_8d0e3")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ubujh"]
 size = Vector2(248, 262)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4ron"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8d0e3"]
+bg_color = Color(0.7675539, 0.16914222, 0.28099167, 1)
 
 [node name="Boss" type="StaticBody2D" unique_id=524988487]
 scale = Vector2(0.66767514, 0.66767514)
@@ -14,6 +26,7 @@ script = ExtResource("1_n18ml")
 fireball_scene = ExtResource("2_r4ron")
 
 [node name="Boss" type="Sprite2D" parent="." unique_id=647674115]
+material = SubResource("ShaderMaterial_vsebo")
 position = Vector2(15, -193)
 texture = ExtResource("1_ubujh")
 
@@ -27,5 +40,15 @@ position = Vector2(154, -390)
 [node name="Timer" type="Timer" parent="." unique_id=1222359964]
 wait_time = 2.0
 autostart = true
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=642837543]
+offset_left = -504.7365
+offset_top = -404.38824
+offset_right = 503.23865
+offset_bottom = -363.90863
+theme_override_styles/background = SubResource("StyleBoxFlat_r4ron")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8d0e3")
+value = 30.0
+show_percentage = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
