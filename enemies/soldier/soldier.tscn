@@ -186,6 +186,8 @@ size = Vector2(12, 30)
 size = Vector2(0, 0)
 
 [node name="Soldier" type="CharacterBody2D" unique_id=32631299]
+collision_layer = 8
+collision_mask = 7
 script = ExtResource("1_vmuw0")
 texture = ExtResource("1_xknac")
 
@@ -214,6 +216,7 @@ position = Vector2(-1, -22)
 shape = SubResource("RectangleShape2D_3avc6")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=876665392]
+collision_layer = 0
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1925789432]

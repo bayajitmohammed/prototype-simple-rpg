@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ch83j3wiq6oii" path="res://levels/boundary.tscn" id="2_pgvl5"]
 [ext_resource type="PackedScene" uid="uid://bgvt8ryinri6r" path="res://enemies/soldier/soldier.tscn" id="3_lm2rq"]
 [ext_resource type="PackedScene" uid="uid://u55rq1177fs" path="res://enemies/boss/boss.tscn" id="4_qq2ud"]
+[ext_resource type="PackedScene" uid="uid://bh41aeoqq5y6w" path="res://player/health_pickup/health_pickup.tscn" id="5_wcjp7"]
 
 [node name="Level0" type="Node2D" unique_id=811767690]
 
@@ -21,3 +22,6 @@ scale = Vector2(2.6800025, 2.6800025)
 
 [node name="Boss" parent="." unique_id=524988487 instance=ExtResource("4_qq2ud")]
 position = Vector2(709.99994, 338.99997)
+
+[node name="HealthPickup" parent="." unique_id=1466356536 instance=ExtResource("5_wcjp7")]
+position = Vector2(344, 752)

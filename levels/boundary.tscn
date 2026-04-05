@@ -33,6 +33,8 @@ script = ExtResource("1_ypnc3")
 
 [node name="Top" type="StaticBody2D" parent="Collision" unique_id=1758769931]
 position = Vector2(240, -8)
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/Top" unique_id=1417082422]
 position = Vector2(480, 0)
@@ -40,6 +42,8 @@ shape = SubResource("RectangleShape2D_ypnc3")
 
 [node name="Bottom" type="StaticBody2D" parent="Collision" unique_id=1693521378]
 position = Vector2(240, 1088)
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/Bottom" unique_id=160632604]
 position = Vector2(480, 0)
@@ -47,6 +51,8 @@ shape = SubResource("RectangleShape2D_ercmn")
 
 [node name="Left" type="StaticBody2D" parent="Collision" unique_id=1264390752]
 position = Vector2(-8, 180)
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/Left" unique_id=1145786914]
 position = Vector2(0, 360)
@@ -54,6 +60,8 @@ shape = SubResource("RectangleShape2D_xencb")
 
 [node name="Right" type="StaticBody2D" parent="Collision" unique_id=1869830644]
 position = Vector2(1448, 180)
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/Right" unique_id=913332872]
 position = Vector2(0, 360)
@@ -63,6 +71,8 @@ shape = SubResource("RectangleShape2D_1e2bd")
 
 [node name="Top" type="Area2D" parent="Triggers" unique_id=1641150922]
 position = Vector2(240, 0)
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Top" unique_id=462669584]
 position = Vector2(480, 4)
@@ -71,6 +81,8 @@ debug_color = Color(0.78751135, 0, 0.3781956, 0.41960785)
 
 [node name="Bottom" type="Area2D" parent="Triggers" unique_id=1441694646]
 position = Vector2(240, 1072)
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Bottom" unique_id=1333850101]
 position = Vector2(480, 4)
@@ -79,6 +91,8 @@ debug_color = Color(0.7882353, 0, 0.3764706, 0.41960785)
 
 [node name="Left" type="Area2D" parent="Triggers" unique_id=1078646620]
 position = Vector2(0, 180)
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Left" unique_id=2146366285]
 position = Vector2(4, 364)
@@ -87,6 +101,8 @@ debug_color = Color(0.7882353, 0, 0.3764706, 0.41960785)
 
 [node name="Right" type="Area2D" parent="Triggers" unique_id=1974502487]
 position = Vector2(1432, 180)
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Right" unique_id=1479890469]
 position = Vector2(4, 364)

@@ -200,7 +200,7 @@ bg_color = Color(0, 0, 0, 1)
 bg_color = Color(0.763876, 0.1458391, 0.2650717, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=2029301136 groups=["player"]]
-collision_mask = 6
+collision_mask = 14
 script = ExtResource("1_oul6g")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=64403266]
@@ -237,6 +237,8 @@ script = ExtResource("4_yw30f")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=899630939]
 position = Vector2(0, -34)
+collision_layer = 0
+collision_mask = 8
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=196432604]

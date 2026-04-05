@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bh41aeoqq5y6w"]
+
+[ext_resource type="Script" uid="uid://dxwouyehwgyy7" path="res://player/health_pickup/health_pickup.gd" id="1_bcdpa"]
+[ext_resource type="Texture2D" uid="uid://cde72lfohb0gm" path="res://player/health_pickup/Cuore1.png" id="2_2nkgf"]
+[ext_resource type="Texture2D" uid="uid://b1vgea6d1hmr2" path="res://player/health_pickup/Cuore2.png" id="3_xf2il"]
+[ext_resource type="Texture2D" uid="uid://dw6xaln7xnsnq" path="res://player/health_pickup/Cuore3.png" id="4_yh00c"]
+[ext_resource type="Texture2D" uid="uid://b2fe38ea6r0it" path="res://player/health_pickup/Cuore4.png" id="5_cnonf"]
+[ext_resource type="Texture2D" uid="uid://d3d4nad35kpmj" path="res://player/health_pickup/Cuore5.png" id="6_0l4dq"]
+[ext_resource type="Texture2D" uid="uid://bwctfp8xkxbau" path="res://player/health_pickup/Cuore6.png" id="7_mmnji"]
+[ext_resource type="Texture2D" uid="uid://kkob53wjen2" path="res://player/health_pickup/Cuore7.png" id="8_qapsh"]
+[ext_resource type="Texture2D" uid="uid://b88wcinrxypo5" path="res://player/health_pickup/Cuore8.png" id="9_6r6ki"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_thaen"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6yw0f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2nkgf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xf2il")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yh00c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cnonf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0l4dq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mmnji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qapsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6r6ki")
+}],
+"loop": true,
+"name": &"default",
+"speed": 14.0
+}]
+
+[node name="HealthPickup" type="Area2D" unique_id=1466356536]
+scale = Vector2(3.2512145, 3.2512145)
+collision_layer = 4
+script = ExtResource("1_bcdpa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=12725279]
+shape = SubResource("CircleShape2D_thaen")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1203413198]
+sprite_frames = SubResource("SpriteFrames_6yw0f")
+autoplay = "default"
+frame_progress = 0.7591798
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

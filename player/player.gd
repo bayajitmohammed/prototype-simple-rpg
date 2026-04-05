@@ -57,6 +57,10 @@ func hit_player(damage: int):
 func update_health_bar():
 	var tween = create_tween()
 	tween.tween_property(health_bar, "value", health, 0.2)
+	
+func heal_to_full():
+	health = max_health
+	update_health_bar()
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name.contains("attack"):

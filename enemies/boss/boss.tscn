@@ -9,8 +9,7 @@ size = Vector2(248, 262)
 
 [node name="Boss" type="StaticBody2D" unique_id=524988487]
 scale = Vector2(0.66767514, 0.66767514)
-collision_layer = 16
-collision_mask = 0
+collision_layer = 8
 script = ExtResource("1_n18ml")
 fireball_scene = ExtResource("2_r4ron")
 

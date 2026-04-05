@@ -34,6 +34,7 @@ radius = 48.09366
 
 [node name="FireBall" type="CharacterBody2D" unique_id=1276625970]
 scale = Vector2(0.38501364, 0.38501364)
+collision_layer = 4
 script = ExtResource("5_kycmo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1117072223]
@@ -46,9 +47,13 @@ shape = SubResource("CircleShape2D_o42eh")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=130941417]
 position = Vector2(-4, 86)
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=806645843]
 shape = SubResource("CircleShape2D_kycmo")
 debug_color = Color(0.9076068, 0.27739155, 0.3148783, 0.41960785)
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1379934015]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -16,6 +16,8 @@ func shoot():
 	
 	var direction = (player.global_position - marker.global_position).normalized()
 	fireball.direction = direction
+	fireball.look_at(player.global_position)
+	fireball.rotation += deg_to_rad(-90)
 	
 	get_tree().current_scene.add_child(fireball)
 
