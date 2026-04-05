@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cbcxbnufei68m"]
+
+[ext_resource type="Texture2D" uid="uid://mug343llfttr" path="res://enemies/boss/BossMagic1.png" id="1_5uy8u"]
+[ext_resource type="Texture2D" uid="uid://cf0u13x0iai8t" path="res://enemies/boss/BossMagic2.png" id="2_kycmo"]
+[ext_resource type="Texture2D" uid="uid://bqi8rl3plfjtq" path="res://enemies/boss/BossMagic3.png" id="3_8xdv1"]
+[ext_resource type="Texture2D" uid="uid://cc3w6v7my77o0" path="res://enemies/boss/BossMagic4.png" id="4_xyrt4"]
+[ext_resource type="Script" uid="uid://bpgtp1so0o2m" path="res://enemies/boss/fire_ball.gd" id="5_kycmo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kycmo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5uy8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kycmo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8xdv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xyrt4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o42eh"]
+radius = 11.788259
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kycmo"]
+radius = 48.09366
+
+[node name="FireBall" type="CharacterBody2D" unique_id=1276625970]
+scale = Vector2(0.38501364, 0.38501364)
+script = ExtResource("5_kycmo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1117072223]
+sprite_frames = SubResource("SpriteFrames_kycmo")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=819020609]
+position = Vector2(0, 86.26706)
+shape = SubResource("CircleShape2D_o42eh")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=130941417]
+position = Vector2(-4, 86)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=806645843]
+shape = SubResource("CircleShape2D_kycmo")
+debug_color = Color(0.9076068, 0.27739155, 0.3148783, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

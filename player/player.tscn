@@ -200,6 +200,7 @@ bg_color = Color(0, 0, 0, 1)
 bg_color = Color(0.763876, 0.1458391, 0.2650717, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=2029301136 groups=["player"]]
+collision_mask = 6
 script = ExtResource("1_oul6g")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=64403266]

@@ -20,5 +20,4 @@ position = Vector2(1083, 686)
 scale = Vector2(2.6800025, 2.6800025)
 
 [node name="Boss" parent="." unique_id=524988487 instance=ExtResource("4_qq2ud")]
-position = Vector2(693, 499)
-scale = Vector2(0.96, 0.96)
+position = Vector2(709.99994, 338.99997)
