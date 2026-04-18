@@ -9,17 +9,17 @@ script = ExtResource("1_hp420")
 
 [node name="Label" type="Label" parent="." unique_id=411126888]
 layout_mode = 0
-offset_left = 511.0
+offset_left = 273.0
 offset_top = 160.0
-offset_right = 584.0
+offset_right = 346.0
 offset_bottom = 183.0
 text = "My Game"
 
 [node name="Button" type="Button" parent="." unique_id=1511385830]
 layout_mode = 0
-offset_left = 519.0
+offset_left = 281.0
 offset_top = 209.0
-offset_right = 559.0
+offset_right = 327.0
 offset_bottom = 240.0
 text = "Start"
 

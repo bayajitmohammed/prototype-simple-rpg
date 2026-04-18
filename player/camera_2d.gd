@@ -11,6 +11,12 @@ var shake_time_speed: float = 20.0
 
 var noise: FastNoiseLite = FastNoiseLite.new()
 
+func _ready() -> void:
+	var screen_size: Vector2 = get_viewport_rect().size
+	limit_right = screen_size.x
+	limit_bottom = screen_size.y
+	
+	
 func _physics_process(delta: float) -> void:
 	if  active_shake_time > 0:
 		shake_time += delta * shake_time_speed

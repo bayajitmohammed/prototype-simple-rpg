@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 @export var texture: Texture2D
-@export var speed: float = 100.0
-@export var chase_range: float = 250.0
-@export var attack_range: float = 80.0
+@export var speed: float = 50.0
+@export var chase_range: float = 100.0
+@export var attack_range: float = 30.0
 @export var attack_cooldown: float = 1.5
 @export var attack_damage: int = 10
 @export var max_health: int = 4
-@export var wander_speed: float = 40.0
+@export var wander_speed: float = 20.0
 @export var wander_change_time: float = 2.0
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

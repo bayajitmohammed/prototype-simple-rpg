@@ -54,17 +54,17 @@ visible = false
 [node name="SpawnPoint" type="Node2D" parent="." unique_id=688792124]
 
 [node name="Top" type="Marker2D" parent="SpawnPoint" unique_id=117199278]
-position = Vector2(694, 112)
+position = Vector2(322, 35)
 
 [node name="Bottom" type="Marker2D" parent="SpawnPoint" unique_id=2073999349]
-position = Vector2(720, 978)
+position = Vector2(328, 448)
 
 [node name="Left" type="Marker2D" parent="SpawnPoint" unique_id=275730801]
-position = Vector2(112, 544)
+position = Vector2(32, 224)
 
 [node name="Right" type="Marker2D" parent="SpawnPoint" unique_id=982381378]
-position = Vector2(1336, 540)
+position = Vector2(600, 224)
 
 [node name="Player" parent="." unique_id=2029301136 instance=ExtResource("2_fj7yv")]
-position = Vector2(720, 1000)
-scale = Vector2(2.24, 2.24)
+position = Vector2(332, 448)
+scale = Vector2(0.935, 0.935)

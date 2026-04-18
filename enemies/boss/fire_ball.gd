@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var attack_damage: int = 10
-@export var speed = 400
+@export var speed = 300
 var direction = Vector2.ZERO
 
 func _physics_process(delta):

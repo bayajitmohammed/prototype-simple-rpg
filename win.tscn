@@ -9,18 +9,19 @@ script = ExtResource("1_wao2c")
 
 [node name="Label" type="Label" parent="." unique_id=1368006645]
 layout_mode = 0
-offset_left = 493.0
-offset_top = 202.0
-offset_right = 607.0
-offset_bottom = 225.0
+offset_left = 275.0
+offset_top = 163.0
+offset_right = 389.0
+offset_bottom = 186.0
 text = "You win"
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="." unique_id=1934914469]
 layout_mode = 0
-offset_left = 457.0
-offset_top = 318.0
-offset_right = 572.0
-offset_bottom = 349.0
+offset_left = 239.0
+offset_top = 279.0
+offset_right = 354.0
+offset_bottom = 310.0
 text = "Back to menu"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

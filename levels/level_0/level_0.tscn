@@ -10,28 +10,30 @@
 [node name="Level0" type="Node2D" unique_id=811767690]
 
 [node name="Lvl0" type="Sprite2D" parent="." unique_id=1874492215]
-position = Vector2(720, 540)
-scale = Vector2(3, 3)
+position = Vector2(320, 240)
+scale = Vector2(1.33, 1.33)
 texture = ExtResource("1_pgvl5")
 
 [node name="Boundary" parent="." unique_id=2035944034 instance=ExtResource("2_pgvl5")]
 next_level_top = "Level1"
 
 [node name="Soldier" parent="." unique_id=32631299 instance=ExtResource("3_lm2rq")]
-position = Vector2(1119, 674)
-scale = Vector2(2.6800025, 2.6800025)
+position = Vector2(480, 363)
 
 [node name="Boss" parent="." unique_id=524988487 instance=ExtResource("4_qq2ud")]
-position = Vector2(709.99994, 338.99997)
+position = Vector2(316.00003, 168.00002)
+scale = Vector2(0.365, 0.365)
 
 [node name="HealthPickup" parent="." unique_id=1466356536 instance=ExtResource("5_wcjp7")]
-position = Vector2(296, 834)
+position = Vector2(133, 400)
+scale = Vector2(1, 1)
 
 [node name="HealthPickup2" parent="." unique_id=1976301545 instance=ExtResource("5_wcjp7")]
-position = Vector2(1106, 969)
+position = Vector2(407, 356.00006)
+scale = Vector2(1, 1)
 
 [node name="Soldier2" parent="." unique_id=1095747560 instance=ExtResource("3_lm2rq")]
-position = Vector2(296, 625)
-scale = Vector2(2.3736265, 2.3736265)
+position = Vector2(145, 331)
 texture = ExtResource("6_ffevf")
+attack_damage = 20
 max_health = 8
