@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://q41vjp0m7mvo"]
+
+[ext_resource type="Script" uid="uid://cojmnc0q2py2f" path="res://ui/welcome/welcome.gd" id="1_hp420"]
+[ext_resource type="Texture2D" uid="uid://cb0mm8uff8s53" path="res://ui/common/button.png" id="2_odedu"]
+[ext_resource type="LabelSettings" uid="uid://bi7wq5bqjer7t" path="res://ui/common/title_label_settings.tres" id="2_q78fr"]
+
+[node name="Welcome" type="Control" unique_id=708521403]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hp420")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=227962730]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 639.0
+offset_bottom = 479.0
+color = Color(0.996728, 0.8885241, 0.7716052, 1)
+
+[node name="Label" type="Label" parent="." unique_id=411126888]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 173.0
+offset_right = 458.0
+offset_bottom = 242.0
+text = "Scratch Rpg"
+label_settings = ExtResource("2_q78fr")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=735316777]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.7310001
+anchor_top = -2.709
+anchor_right = 2.8300002
+anchor_bottom = 3.0870001
+offset_left = 260.0
+offset_top = 296.0
+offset_right = 370.0
+offset_bottom = 342.0
+texture_normal = ExtResource("2_odedu")
+
+[node name="Label" type="Label" parent="TextureButton" unique_id=129762017]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 10.0
+offset_right = 76.0
+offset_bottom = 33.0
+text = "Start"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

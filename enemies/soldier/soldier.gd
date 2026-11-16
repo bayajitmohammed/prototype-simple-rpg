@@ -111,5 +111,5 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.is_in_group("player"):
 		body.hit_player(attack_damage)

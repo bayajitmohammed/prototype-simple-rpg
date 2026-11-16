@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://hmgql080rh0x" path="res://enemies/boss/boss.gdshader" id="3_8d0e3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vsebo"]
+resource_local_to_scene = true
 shader = ExtResource("3_8d0e3")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
@@ -42,10 +43,10 @@ wait_time = 2.0
 autostart = true
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=642837543]
-offset_left = -504.7365
-offset_top = -404.38824
-offset_right = 503.23865
-offset_bottom = -363.90863
+offset_left = -173.0141
+offset_top = -368.80142
+offset_right = 203.0141
+offset_bottom = -350.0
 theme_override_styles/background = SubResource("StyleBoxFlat_r4ron")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8d0e3")
 value = 30.0

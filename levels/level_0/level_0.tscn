@@ -2,10 +2,28 @@
 
 [ext_resource type="Texture2D" uid="uid://lq5a381xhnws" path="res://levels/level_0/lvl0.png" id="1_pgvl5"]
 [ext_resource type="PackedScene" uid="uid://ch83j3wiq6oii" path="res://levels/boundary.tscn" id="2_pgvl5"]
-[ext_resource type="PackedScene" uid="uid://bgvt8ryinri6r" path="res://enemies/soldier/soldier.tscn" id="3_lm2rq"]
-[ext_resource type="PackedScene" uid="uid://u55rq1177fs" path="res://enemies/boss/boss.tscn" id="4_qq2ud"]
-[ext_resource type="PackedScene" uid="uid://bh41aeoqq5y6w" path="res://player/health_pickup/health_pickup.tscn" id="5_wcjp7"]
-[ext_resource type="Texture2D" uid="uid://dkwkl5thb23vk" path="res://enemies/soldier/enemy2.png" id="6_ffevf"]
+[ext_resource type="Script" uid="uid://wpxidos1xv1a" path="res://levels/boundary.gd" id="3_qq2ud"]
+[ext_resource type="Script" uid="uid://d0i1qu0u65kpi" path="res://levels/level_0/tutorial_bubble.gd" id="4_wcjp7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgvl5"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 6.0
+bg_color = Color(1, 0.98, 0.92, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.13, 0.08, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_lm2rq"]
+font_size = 13
+font_color = Color(0.2, 0.13, 0.08, 1)
 
 [node name="Level0" type="Node2D" unique_id=811767690]
 
@@ -14,26 +32,37 @@ position = Vector2(320, 240)
 scale = Vector2(1.33, 1.33)
 texture = ExtResource("1_pgvl5")
 
-[node name="Boundary" parent="." unique_id=2035944034 instance=ExtResource("2_pgvl5")]
+[node name="Boundary" type="Node2D" parent="." unique_id=2035944034 instance=ExtResource("2_pgvl5")]
+script = ExtResource("3_qq2ud")
 next_level_top = "Level1"
 
-[node name="Soldier" parent="." unique_id=32631299 instance=ExtResource("3_lm2rq")]
-position = Vector2(480, 363)
+[node name="TutorialBubble" type="Node2D" parent="." unique_id=19307441]
+position = Vector2(330, 392)
+script = ExtResource("4_wcjp7")
 
-[node name="Boss" parent="." unique_id=524988487 instance=ExtResource("4_qq2ud")]
-position = Vector2(316.00003, 168.00002)
-scale = Vector2(0.365, 0.365)
+[node name="Panel" type="Panel" parent="TutorialBubble" unique_id=717294533]
+offset_left = -105.0
+offset_top = -88.0
+offset_right = 105.0
+offset_bottom = -12.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pgvl5")
 
-[node name="HealthPickup" parent="." unique_id=1466356536 instance=ExtResource("5_wcjp7")]
-position = Vector2(133, 400)
-scale = Vector2(1, 1)
+[node name="Label" type="Label" parent="TutorialBubble/Panel" unique_id=2124271034]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "WASD / Arrow keys - Move
+Space - Attack
+Head north to begin!"
+label_settings = SubResource("LabelSettings_lm2rq")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="HealthPickup2" parent="." unique_id=1976301545 instance=ExtResource("5_wcjp7")]
-position = Vector2(407, 356.00006)
-scale = Vector2(1, 1)
+[node name="Tail" type="Polygon2D" parent="TutorialBubble" unique_id=882714473]
+color = Color(0.2, 0.13, 0.08, 1)
+polygon = PackedVector2Array(-9, -14, 9, -14, 0, 0)
 
-[node name="Soldier2" parent="." unique_id=1095747560 instance=ExtResource("3_lm2rq")]
-position = Vector2(145, 331)
-texture = ExtResource("6_ffevf")
-attack_damage = 20
-max_health = 8
+[node name="TailFill" type="Polygon2D" parent="TutorialBubble" unique_id=2116887247]
+color = Color(1, 0.98, 0.92, 0.95)
+polygon = PackedVector2Array(-6, -15, 6, -15, 0, -3.5)

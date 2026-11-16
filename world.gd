@@ -21,6 +21,12 @@ func _ready() -> void:
 	
 
 func switch_level(level_name: String, spawn_name: String):
+	# Move the player to the spawn point BEFORE enabling the next level. All levels
+	# share the same coordinates, so enabling first would let the next level's exit
+	# triggers see the player still standing on the previous level's exit.
+	var spawn: Marker2D = spawn_points[spawn_name]
+	player.global_position = spawn.global_position
+
 	if current_level:
 		current_level.visible = false
 		current_level.process_mode = Node.PROCESS_MODE_DISABLED
@@ -29,8 +35,5 @@ func switch_level(level_name: String, spawn_name: String):
 	next_level.visible = true
 	next_level.process_mode = Node.PROCESS_MODE_INHERIT
 	current_level = next_level
-	
-	var spawn: Marker2D = spawn_points[spawn_name]
-	player.global_position = spawn.global_position
 	
 	

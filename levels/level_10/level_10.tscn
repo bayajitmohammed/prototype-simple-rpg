@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://ybdu040lxdkj" path="res://levels/level_10/Lvl10.png" id="1_6glgw"]
 [ext_resource type="PackedScene" uid="uid://ch83j3wiq6oii" path="res://levels/boundary.tscn" id="2_pil61"]
+[ext_resource type="PackedScene" uid="uid://u55rq1177fs" path="res://enemies/boss/boss.tscn" id="3_1xhd5"]
+[ext_resource type="PackedScene" uid="uid://bh41aeoqq5y6w" path="res://player/health_pickup/health_pickup.tscn" id="4_s1skx"]
 
 [node name="Level10" type="Node2D" unique_id=1601864107]
 
@@ -12,3 +14,14 @@ texture = ExtResource("1_6glgw")
 
 [node name="Boundary" parent="." unique_id=2035944034 instance=ExtResource("2_pil61")]
 next_level_bottom = "Level9"
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1137886170]
+
+[node name="Boss" parent="Enemies" unique_id=524988487 instance=ExtResource("3_1xhd5")]
+position = Vector2(320, 230)
+scale = Vector2(0.4255, 0.4255)
+
+[node name="Pickups" type="Node2D" parent="." unique_id=1884075947]
+
+[node name="HealthPickup1" parent="Pickups" unique_id=1466356536 instance=ExtResource("4_s1skx")]
+position = Vector2(240, 410)

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://futnnbhcgvw7"]
+
+[ext_resource type="Script" uid="uid://dbt77p07rs7tr" path="res://ui/death/death.gd" id="1_qemge"]
+[ext_resource type="LabelSettings" uid="uid://bi7wq5bqjer7t" path="res://ui/common/title_label_settings.tres" id="2_wpf5q"]
+[ext_resource type="Texture2D" uid="uid://cb0mm8uff8s53" path="res://ui/common/button.png" id="3_y7q6c"]
+
+[node name="Death" type="Control" unique_id=2009475692]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_qemge")
+
+[node name="Background" type="ColorRect" parent="." unique_id=243370]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.996728, 0.8885241, 0.7716052, 1)
+
+[node name="Title" type="Label" parent="." unique_id=1308532623]
+layout_mode = 0
+offset_top = 173.0
+offset_right = 640.0
+offset_bottom = 242.0
+text = "You Died"
+label_settings = ExtResource("2_wpf5q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButton" type="TextureButton" parent="." unique_id=1982658661]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 296.0
+offset_right = 395.0
+offset_bottom = 342.0
+texture_normal = ExtResource("3_y7q6c")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MenuButton" unique_id=1798279286]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Back to Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_button_pressed"]

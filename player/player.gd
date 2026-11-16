@@ -36,16 +36,26 @@ func _physics_process(_delta):
 	if velocity:
 		last_direction = direction
 	
-	if Input.is_action_pressed("attack"):
-		attacking = true
 	animation_tree.set("parameters/Idle/blend_position", last_direction)
 	animation_tree.set("parameters/Walk/blend_position", last_direction)
 	animation_tree.set("parameters/Attack/blend_position", last_direction)
 
-func frame_freeze(timescale:float, duration: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		attacking = true
+		# Explicitly (re)start the Attack state. Relying only on the "attacking"
+		# advance expression can leave the tree parked on the last frame of a
+		# finished attack, so animation_finished never fires again.
+		var playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
+		playback.start(&"Attack", true)
+
+func frame_freeze(timescale: float, duration: float) -> void:
+	var tree: SceneTree = get_tree()
+	if tree == null:
+		return
 	Engine.time_scale = timescale
-	await get_tree().create_timer(duration, true, false, true).timeout
-	Engine.time_scale = 1.0
+	# The reset is connected to Engine itself, not to this node, so time_scale is
+	# restored even if the player is freed by a scene change mid-freeze.
+	tree.create_timer(duration, true, false, true).timeout.connect(Engine.set.bind("time_scale", 1.0))
 	
 func hit_player(damage: int):
 	health -= damage
@@ -67,12 +77,12 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		attacking = false
 	if anim_name.contains("death"):
 		dying = false
-		get_tree().change_scene_to_file("res://death.tscn")
+		get_tree().change_scene_to_file("res://ui/death/death.tscn")
 
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
-	if body.name == "Soldier" or body.name == "Boss":
+	if body.has_method("hit_enemy"):
 		camera_2d.screen_shake(8, 0.5)
 		body.hit_enemy()
 		body.play_hit_flash()

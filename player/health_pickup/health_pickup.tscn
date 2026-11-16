@@ -39,13 +39,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_6r6ki")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 14.0
 }]
 
 [node name="HealthPickup" type="Area2D" unique_id=1466356536]
-scale = Vector2(3.2512145, 3.2512145)
 collision_layer = 4
 script = ExtResource("1_bcdpa")
 

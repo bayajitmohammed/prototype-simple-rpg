@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://0gxg08uqpwb6" path="res://levels/level_3/Lvl3.png" id="1_35b77"]
 [ext_resource type="PackedScene" uid="uid://ch83j3wiq6oii" path="res://levels/boundary.tscn" id="2_upa32"]
+[ext_resource type="PackedScene" uid="uid://bgvt8ryinri6r" path="res://enemies/soldier/soldier.tscn" id="3_1ylvm"]
+[ext_resource type="PackedScene" uid="uid://bh41aeoqq5y6w" path="res://player/health_pickup/health_pickup.tscn" id="4_0c4fo"]
 
 [node name="Level3" type="Node2D" unique_id=774288193]
 
@@ -13,3 +15,28 @@ texture = ExtResource("1_35b77")
 [node name="Boundary" parent="." unique_id=2035944034 instance=ExtResource("2_upa32")]
 next_level_left = "Level2"
 next_level_right = "Level4"
+
+[node name="Enemies" type="Node2D" parent="." unique_id=541026397]
+
+[node name="Grunt1" parent="Enemies" unique_id=32631299 instance=ExtResource("3_1ylvm")]
+position = Vector2(150, 260)
+speed = 55.0
+attack_damage = 12
+max_health = 5
+
+[node name="Grunt2" parent="Enemies" unique_id=516076964 instance=ExtResource("3_1ylvm")]
+position = Vector2(300, 180)
+speed = 55.0
+attack_damage = 12
+max_health = 5
+
+[node name="Grunt3" parent="Enemies" unique_id=1371086 instance=ExtResource("3_1ylvm")]
+position = Vector2(520, 230)
+speed = 55.0
+attack_damage = 12
+max_health = 5
+
+[node name="Pickups" type="Node2D" parent="." unique_id=1340249111]
+
+[node name="HealthPickup1" parent="Pickups" unique_id=1466356536 instance=ExtResource("4_0c4fo")]
+position = Vector2(240, 300)

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://c1176vxfr45ox"]
+
+[ext_resource type="Script" uid="uid://dl0k5leupibq7" path="res://ui/win/win.gd" id="1_wao2c"]
+[ext_resource type="LabelSettings" uid="uid://bi7wq5bqjer7t" path="res://ui/common/title_label_settings.tres" id="2_pf6w0"]
+[ext_resource type="Texture2D" uid="uid://cb0mm8uff8s53" path="res://ui/common/button.png" id="3_q3kvq"]
+
+[node name="Win" type="Control" unique_id=1365458221]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_wao2c")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1605820356]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.996728, 0.8885241, 0.7716052, 1)
+
+[node name="Title" type="Label" parent="." unique_id=1801459796]
+layout_mode = 0
+offset_top = 173.0
+offset_right = 640.0
+offset_bottom = 242.0
+text = "You Win!"
+label_settings = ExtResource("2_pf6w0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButton" type="TextureButton" parent="." unique_id=1052814645]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 296.0
+offset_right = 395.0
+offset_bottom = 342.0
+texture_normal = ExtResource("3_q3kvq")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MenuButton" unique_id=1259371094]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Back to Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_button_pressed"]

@@ -6,6 +6,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://g0lyfk5ri6e8" path="res://common/character_animation.res" id="3_wpcup"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x2d85"]
+resource_local_to_scene = true
 shader = ExtResource("2_wpcup")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
@@ -67,15 +68,19 @@ animation = &"character_animation/attack_down"
 animation = &"character_animation/attack_up"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_wodsf"]
+blend_mode = 1
 blend_point_0/node = SubResource("AnimationNodeAnimation_2ieo8")
 blend_point_0/pos = Vector2(-1, 0)
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_ebec5")
 blend_point_1/pos = Vector2(1, 0)
+blend_point_1/name = &"1"
 blend_point_2/node = SubResource("AnimationNodeAnimation_yllr7")
 blend_point_2/pos = Vector2(0, 1)
+blend_point_2/name = &"2"
 blend_point_3/node = SubResource("AnimationNodeAnimation_kb6p2")
 blend_point_3/pos = Vector2(0, -1)
-blend_mode = 1
+blend_point_3/name = &"3"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g1dw6"]
 animation = &"character_animation/idle_left"
@@ -90,15 +95,19 @@ animation = &"character_animation/idle_up"
 animation = &"character_animation/idle_down"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_boad6"]
+blend_mode = 1
 blend_point_0/node = SubResource("AnimationNodeAnimation_g1dw6")
 blend_point_0/pos = Vector2(-1, 0)
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_yw30f")
 blend_point_1/pos = Vector2(1, 0)
+blend_point_1/name = &"1"
 blend_point_2/node = SubResource("AnimationNodeAnimation_qjkh3")
 blend_point_2/pos = Vector2(0, -1)
+blend_point_2/name = &"2"
 blend_point_3/node = SubResource("AnimationNodeAnimation_g6k8r")
 blend_point_3/pos = Vector2(0, 1)
-blend_mode = 1
+blend_point_3/name = &"3"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_boad6"]
 animation = &"character_animation/walk_left"
@@ -113,15 +122,19 @@ animation = &"character_animation/walk_down"
 animation = &"character_animation/walk_up"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_2ieo8"]
+blend_mode = 1
 blend_point_0/node = SubResource("AnimationNodeAnimation_boad6")
 blend_point_0/pos = Vector2(-1, 0)
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_rgyib")
 blend_point_1/pos = Vector2(1, 0)
+blend_point_1/name = &"1"
 blend_point_2/node = SubResource("AnimationNodeAnimation_hg6s5")
 blend_point_2/pos = Vector2(0, 1)
+blend_point_2/name = &"2"
 blend_point_3/node = SubResource("AnimationNodeAnimation_8t03j")
 blend_point_3/pos = Vector2(0, -1)
-blend_mode = 1
+blend_point_3/name = &"3"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x2d85"]
 animation = &"character_animation/death"
@@ -183,6 +196,7 @@ graph_offset = Vector2(-9, 59)
 size = Vector2(12, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2d85"]
+resource_local_to_scene = true
 size = Vector2(0, 0)
 
 [node name="Soldier" type="CharacterBody2D" unique_id=32631299]

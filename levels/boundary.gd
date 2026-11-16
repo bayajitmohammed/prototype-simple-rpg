@@ -8,7 +8,6 @@ extends Node2D
 @onready var triggers: Node2D = $Triggers
 @onready var world: Node2D = get_tree().get_root().get_node("World")
 
-var parent_visibility := false
 var exit_points := {}
 
 func _ready() -> void:
@@ -18,33 +17,45 @@ func _ready() -> void:
 		"Left": {"trigger": triggers.get_node("Left"), "level": next_level_left, "spawn": "Right"},
 		"Right": {"trigger": triggers.get_node("Right"), "level": next_level_right, "spawn": "Left"},
 	}
-	
-	_update_area2d_monitoring()
-	
+	# visibility_changed fires even while the level is PROCESS_MODE_DISABLED,
+	# unlike _process, so the triggers can never be left on in a hidden level.
+	get_parent().visibility_changed.connect(_on_level_visibility_changed)
+	_on_level_visibility_changed()
 
-func _process(_delta: float) -> void:
-	var is_parent_visible = get_parent().visible
-	if parent_visibility != is_parent_visible:
-		parent_visibility = is_parent_visible
-		_update_area2d_monitoring()
-			
-func _update_area2d_monitoring():
+
+func _on_level_visibility_changed() -> void:
+	if not get_parent().visible:
+		_set_monitoring(false)
+		return
+	# Turn the exits on only after a physics frame, once the player has been
+	# placed at the spawn point. Otherwise a trigger can report the player's
+	# overlap from the previous level's exit (all levels share coordinates).
+	await get_tree().physics_frame
+	_set_monitoring(get_parent().visible)
+
+
+func _set_monitoring(enabled: bool) -> void:
 	for exit_point in exit_points.keys():
 		var trigger_info = exit_points[exit_point]
 		var trigger: Area2D = trigger_info["trigger"]
 		var level_name: String = trigger_info["level"]
 		if trigger:
-			trigger.monitoring = (level_name != "") and parent_visibility
+			trigger.monitoring = enabled and level_name != ""
 			
 func _handle_player_entered(body: Node2D, exit_point: String) -> void:
 	if body.name != "Player":
+		return
+	# Only the level the player is actually in may send them somewhere.
+	if world.current_level != get_parent():
 		return
 	var trigger_info = exit_points[exit_point]
 	var target_level: String = trigger_info["level"]
 	var target_spawn: String = trigger_info["spawn"]
 	
 	if target_level != "":
-		world.switch_level(target_level, target_spawn)
+		# Deferred: switching disables this level's physics bodies, which Godot
+		# does not allow from inside a physics callback such as body_entered.
+		world.switch_level.call_deferred(target_level, target_spawn)
 
 
 func _on_top_body_entered(body: Node2D) -> void:

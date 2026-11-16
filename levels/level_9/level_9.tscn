@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bfya3nkyccsna" path="res://levels/level_9/Lvl9.png" id="1_6nf2p"]
 [ext_resource type="PackedScene" uid="uid://ch83j3wiq6oii" path="res://levels/boundary.tscn" id="2_56ghe"]
+[ext_resource type="PackedScene" uid="uid://bgvt8ryinri6r" path="res://enemies/soldier/soldier.tscn" id="3_l6fl2"]
+[ext_resource type="Texture2D" uid="uid://dkwkl5thb23vk" path="res://enemies/soldier/enemy2.png" id="4_o6tlx"]
 
 [node name="Level9" type="Node2D" unique_id=685244625]
 
@@ -13,3 +15,33 @@ texture = ExtResource("1_6nf2p")
 [node name="Boundary" parent="." unique_id=2035944034 instance=ExtResource("2_56ghe")]
 next_level_top = "Level10"
 next_level_bottom = "Level8"
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1207266107]
+
+[node name="ArmoredSoldier1" parent="Enemies" unique_id=32631299 instance=ExtResource("3_l6fl2")]
+position = Vector2(220, 130)
+texture = ExtResource("4_o6tlx")
+speed = 60.0
+attack_damage = 20
+max_health = 10
+
+[node name="ArmoredSoldier2" parent="Enemies" unique_id=453546562 instance=ExtResource("3_l6fl2")]
+position = Vector2(420, 130)
+texture = ExtResource("4_o6tlx")
+speed = 60.0
+attack_damage = 20
+max_health = 10
+
+[node name="ArmoredSoldier3" parent="Enemies" unique_id=1734666952 instance=ExtResource("3_l6fl2")]
+position = Vector2(230, 300)
+texture = ExtResource("4_o6tlx")
+speed = 60.0
+attack_damage = 20
+max_health = 10
+
+[node name="ArmoredSoldier4" parent="Enemies" unique_id=1253818928 instance=ExtResource("3_l6fl2")]
+position = Vector2(420, 300)
+texture = ExtResource("4_o6tlx")
+speed = 60.0
+attack_damage = 20
+max_health = 10

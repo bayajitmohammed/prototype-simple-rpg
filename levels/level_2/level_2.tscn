@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ca7p64a5v0xwx" path="res://levels/level_2/Lvl2.png" id="1_jniqj"]
 [ext_resource type="PackedScene" uid="uid://ch83j3wiq6oii" path="res://levels/boundary.tscn" id="2_618ip"]
+[ext_resource type="PackedScene" uid="uid://bgvt8ryinri6r" path="res://enemies/soldier/soldier.tscn" id="3_618ip"]
 
 [node name="Level2" type="Node2D" unique_id=733423982]
 
@@ -13,3 +14,14 @@ texture = ExtResource("1_jniqj")
 [node name="Boundary" parent="." unique_id=2035944034 instance=ExtResource("2_618ip")]
 next_level_left = "Level1"
 next_level_right = "Level3"
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1730306918]
+
+[node name="Grunt1" parent="Enemies" unique_id=32631299 instance=ExtResource("3_618ip")]
+position = Vector2(250, 200)
+
+[node name="Grunt2" parent="Enemies" unique_id=1063853259 instance=ExtResource("3_618ip")]
+position = Vector2(420, 300)
+
+[node name="Grunt3" parent="Enemies" unique_id=1798213283 instance=ExtResource("3_618ip")]
+position = Vector2(520, 170)
