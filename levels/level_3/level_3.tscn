@@ -5,9 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://bgvt8ryinri6r" path="res://enemies/soldier/soldier.tscn" id="3_1ylvm"]
 [ext_resource type="PackedScene" uid="uid://bh41aeoqq5y6w" path="res://player/health_pickup/health_pickup.tscn" id="4_0c4fo"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ylvm"]
+size = Vector2(32.78, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0c4fo"]
+size = Vector2(64.78, 15.279999)
+
 [node name="Level3" type="Node2D" unique_id=774288193]
+y_sort_enabled = true
 
 [node name="Lvl3" type="Sprite2D" parent="." unique_id=1326815489]
+z_index = -1
 position = Vector2(320, 240)
 scale = Vector2(1.33, 1.33)
 texture = ExtResource("1_35b77")
@@ -17,6 +25,7 @@ next_level_left = "Level2"
 next_level_right = "Level4"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=541026397]
+y_sort_enabled = true
 
 [node name="Grunt1" parent="Enemies" unique_id=32631299 instance=ExtResource("3_1ylvm")]
 position = Vector2(150, 260)
@@ -37,6 +46,62 @@ attack_damage = 12
 max_health = 5
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1340249111]
+y_sort_enabled = true
 
 [node name="HealthPickup1" parent="Pickups" unique_id=1466356536 instance=ExtResource("4_0c4fo")]
 position = Vector2(240, 300)
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=1945758041]
+editor_description = "Each child origin = y-sort point."
+y_sort_enabled = true
+
+[node name="SmallStump" type="Node2D" parent="Obstacles" unique_id=1296013213]
+position = Vector2(222, 172)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/SmallStump" unique_id=444968503]
+texture = ExtResource("1_35b77")
+polygon = PackedVector2Array(-12, -51, 12, -52, 21, -41, 23, -14, 17, -3, 0, 1, -15, 0, -22, -10, -22, -38)
+uv = PackedVector2Array(157.29323, 90.52631, 175.33833, 89.77444, 182.10526, 98.045105, 183.60901, 118.345856, 179.09773, 126.61653, 166.31578, 129.62405, 155.03758, 128.87218, 149.77443, 121.35338, 149.77443, 100.30074)
+
+[node name="Collision" type="StaticBody2D" parent="Obstacles/SmallStump" unique_id=858019552]
+editor_description = "Feet blocked in [P: (200.0, 140.0), S: (44.0, 32.0)] (world). Shape is offset for the torso hitbox."
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/SmallStump/Collision" unique_id=243936081]
+position = Vector2(-1.8699951, -36.53)
+shape = SubResource("RectangleShape2D_1ylvm")
+
+[node name="BigStump" type="Node2D" parent="Obstacles" unique_id=955048597]
+position = Vector2(414, 348)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/BigStump" unique_id=383374035]
+texture = ExtResource("1_35b77")
+polygon = PackedVector2Array(-7, -94, 5, -95, 25, -89, 35, -75, 38, -32, 34, -6, 17, 0, -7, 0, -29, -3, -39, -16, -36, -72, -24, -89)
+uv = PackedVector2Array(305.41354, 190.5263, 314.4361, 189.77443, 329.4737, 194.2857, 336.9925, 204.81201, 339.2481, 237.14284, 336.2406, 256.6917, 323.45865, 261.203, 305.41354, 261.203, 288.8722, 258.94736, 281.3534, 249.17291, 283.609, 207.06766, 292.6316, 194.2857)
+
+[node name="Collision" type="StaticBody2D" parent="Obstacles/BigStump" unique_id=2095703596]
+editor_description = "Feet blocked in [P: (376.0, 300.0), S: (76.0, 48.0)] (world). Shape is offset for the torso hitbox."
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/BigStump/Collision" unique_id=79008304]
+position = Vector2(-1.8699951, -43.169983)
+shape = SubResource("RectangleShape2D_0c4fo")
+
+[node name="Walls" type="Node2D" parent="." unique_id=935358909]
+editor_description = "Collision shapes are eroded for the player's torso hitbox."
+
+[node name="TopForest" type="StaticBody2D" parent="Walls" unique_id=1996820939]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/TopForest" unique_id=991225960]
+polygon = PackedVector2Array(672.52, -42.81001, 672.52, 38.47, 46.90833, 38.47, 40.90833, 46.470013, -36.26, 46.470013, -36.26, -42.81001)
+
+[node name="BottomForest" type="StaticBody2D" parent="Walls" unique_id=300237068]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/BottomForest" unique_id=559298908]
+polygon = PackedVector2Array(197.27736, 351.18997, 209.24776, 399.07156, 260.47305, 401.20596, 300.51294, 385.19, 351.42017, 385.19, 368.19333, 397.76987, 391.33493, 378.8358, 420.57602, 365.18997, 452.29047, 365.18997, 466.1882, 394.9708, 516.5849, 401.01843, 526.69214, 417.19, 561.3525, 417.19, 567.4017, 386.944, 592.26904, 385.03116, 600.2055, 365.18997, 672.52, 365.18997, 672.52, 484.47, -36.26, 484.47, -36.26, 409.18997, 51.23958, 409.18997, 57.23958, 381.19, 101.3065, 381.19, 120.50588, 397.98947, 131.14212, 351.18997)

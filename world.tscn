@@ -15,9 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://c6jlr0lx1p7r4" path="res://levels/level_10/level_10.tscn" id="13_bc84e"]
 
 [node name="World" type="Node2D" unique_id=1131332766]
+y_sort_enabled = true
 script = ExtResource("1_aqk2v")
 
 [node name="Levels" type="Node2D" parent="." unique_id=1008468852]
+y_sort_enabled = true
 
 [node name="Level0" parent="Levels" unique_id=811767690 instance=ExtResource("1_f3sb7")]
 

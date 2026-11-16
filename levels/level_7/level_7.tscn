@@ -5,9 +5,20 @@
 [ext_resource type="PackedScene" uid="uid://bgvt8ryinri6r" path="res://enemies/soldier/soldier.tscn" id="3_3x2t3"]
 [ext_resource type="Texture2D" uid="uid://dkwkl5thb23vk" path="res://enemies/soldier/enemy2.png" id="4_jdrjf"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3x2t3"]
+size = Vector2(18.779999, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdrjf"]
+size = Vector2(20.779999, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7cbe"]
+size = Vector2(20.779999, 2)
+
 [node name="Level7" type="Node2D" unique_id=953537161]
+y_sort_enabled = true
 
 [node name="Lvl7" type="Sprite2D" parent="." unique_id=539946265]
+z_index = -1
 position = Vector2(320, 240)
 scale = Vector2(1.33, 1.33)
 texture = ExtResource("2_lg81t")
@@ -17,6 +28,7 @@ next_level_top = "Level8"
 next_level_bottom = "Level6"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1812821381]
+y_sort_enabled = true
 
 [node name="ArmoredSoldier1" parent="Enemies" unique_id=32631299 instance=ExtResource("3_3x2t3")]
 position = Vector2(240, 170)
@@ -38,3 +50,187 @@ texture = ExtResource("4_jdrjf")
 speed = 60.0
 attack_damage = 18
 max_health = 9
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=849320306]
+editor_description = "Each child origin = y-sort point."
+y_sort_enabled = true
+
+[node name="RockTop" type="Node2D" parent="Obstacles" unique_id=1418896713]
+position = Vector2(347, 161)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RockTop" unique_id=320585287]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-4, -73, 5, -66, 13, -41, 17, -16, 13, 2, -17, 2, -17, -21, -11, -51)
+uv = PackedVector2Array(257.29324, 65.71429, 264.06015, 70.97744, 270.0752, 89.77444, 273.0827, 108.57142, 270.0752, 122.105255, 247.5188, 122.105255, 247.5188, 104.81202, 252.03008, 82.25564)
+
+[node name="Collision" type="StaticBody2D" parent="Obstacles/RockTop" unique_id=1460172669]
+editor_description = "Feet blocked in [P: (332.0, 142.0), S: (30.0, 20.0)] (world). Shape is offset for the torso hitbox."
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/RockTop/Collision" unique_id=1769183132]
+position = Vector2(-1.8699951, -35.53)
+shape = SubResource("RectangleShape2D_3x2t3")
+
+[node name="RockLeft" type="Node2D" parent="Obstacles" unique_id=2086567073]
+position = Vector2(163, 283)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RockLeft" unique_id=1958847495]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-5, -83, 3, -79, 13, -53, 18, -21, 13, 1, -15, 1, -18, -28, -13, -58)
+uv = PackedVector2Array(118.19548, 149.9248, 124.21052, 152.93233, 131.72932, 172.48119, 135.48871, 196.54134, 131.72932, 213.0827, 110.67669, 213.0827, 108.42104, 191.27818, 112.18044, 168.7218)
+
+[node name="Collision" type="StaticBody2D" parent="Obstacles/RockLeft" unique_id=728882308]
+editor_description = "Feet blocked in [P: (148.0, 264.0), S: (32.0, 20.0)] (world). Shape is offset for the torso hitbox."
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/RockLeft/Collision" unique_id=630769775]
+position = Vector2(-0.8699951, -35.53)
+shape = SubResource("RectangleShape2D_jdrjf")
+
+[node name="RockRight" type="Node2D" parent="Obstacles" unique_id=417418800]
+position = Vector2(450, 368)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RockRight" unique_id=1803270741]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-2, -74, 6, -70, 14, -48, 18, -18, 12, 1, -16, 1, -19, -23, -12, -50)
+uv = PackedVector2Array(336.2406, 220.60149, 342.25565, 223.60901, 348.27066, 240.15036, 351.2782, 262.70676, 346.7669, 276.99246, 325.7143, 276.99246, 323.45865, 258.94736, 328.7218, 238.6466)
+
+[node name="Collision" type="StaticBody2D" parent="Obstacles/RockRight" unique_id=2127081557]
+editor_description = "Feet blocked in [P: (434.0, 350.0), S: (32.0, 19.0)] (world). Shape is offset for the torso hitbox."
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/RockRight/Collision" unique_id=1875808943]
+position = Vector2(-1.8699951, -35.53)
+shape = SubResource("RectangleShape2D_p7cbe")
+
+[node name="LeftPillar1" type="Node2D" parent="Obstacles" unique_id=1984471909]
+position = Vector2(19, 68)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar1" unique_id=628838031]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-11.4, -68, 11.4, -68, 19, -60.4, 19, -7.5999985, 11.4, 0, -11.4, 0, -19, -7.5999985, -19, -60.4)
+uv = PackedVector2Array(5.1127815, -0.45112783, 22.255638, -0.45112783, 27.969925, 5.263158, 27.969925, 44.962406, 22.255638, 50.676693, 5.1127815, 50.676693, -0.60150373, 44.962406, -0.60150373, 5.263158)
+
+[node name="RightPillar1" type="Node2D" parent="Obstacles" unique_id=1362748691]
+position = Vector2(616, 68)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar1" unique_id=674301739]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-14.400024, -68, 14.400024, -68, 24, -58.4, 24, -9.599998, 14.400024, 0, -14.400024, 0, -24, -9.599998, -24, -58.4)
+uv = PackedVector2Array(451.7293, -0.45112783, 473.38348, -0.45112783, 480.6015, 6.766917, 480.6015, 43.45865, 473.38348, 50.676693, 451.7293, 50.676693, 444.51126, 43.45865, 444.51126, 6.766917)
+
+[node name="LeftPillar2" type="Node2D" parent="Obstacles" unique_id=247579916]
+position = Vector2(19, 140)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar2" unique_id=1920556262]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-11.4, -72, 11.4, -72, 19, -64.4, 19, -7.600006, 11.4, 0, -11.4, 0, -19, -7.600006, -19, -64.4)
+uv = PackedVector2Array(5.1127815, 50.676693, 22.255638, 50.676693, 27.969925, 56.390976, 27.969925, 99.09773, 22.255638, 104.81202, 5.1127815, 104.81202, -0.60150373, 99.09773, -0.60150373, 56.390976)
+
+[node name="RightPillar2" type="Node2D" parent="Obstacles" unique_id=1021685699]
+position = Vector2(616, 140)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar2" unique_id=615837266]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-14.400024, -72, 14.400024, -72, 24, -62.4, 24, -9.600006, 14.400024, 0, -14.400024, 0, -24, -9.600006, -24, -62.4)
+uv = PackedVector2Array(451.7293, 50.676693, 473.38348, 50.676693, 480.6015, 57.894733, 480.6015, 97.59397, 473.38348, 104.81202, 451.7293, 104.81202, 444.51126, 97.59397, 444.51126, 57.894733)
+
+[node name="LeftPillar3" type="Node2D" parent="Obstacles" unique_id=1715431547]
+position = Vector2(19, 207)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar3" unique_id=150840441]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-11.4, -67, 11.4, -67, 19, -59.399994, 19, -7.600006, 11.4, 0, -11.4, 0, -19, -7.600006, -19, -59.399994)
+uv = PackedVector2Array(5.1127815, 104.81202, 22.255638, 104.81202, 27.969925, 110.52631, 27.969925, 149.47366, 22.255638, 155.18796, 5.1127815, 155.18796, -0.60150373, 149.47366, -0.60150373, 110.52631)
+
+[node name="RightPillar3" type="Node2D" parent="Obstacles" unique_id=1302285956]
+position = Vector2(616, 207)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar3" unique_id=658888476]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-14.400024, -67, 14.400024, -67, 24, -57.399994, 24, -9.600006, 14.400024, 0, -14.400024, 0, -24, -9.600006, -24, -57.399994)
+uv = PackedVector2Array(451.7293, 104.81202, 473.38348, 104.81202, 480.6015, 112.030075, 480.6015, 147.96991, 473.38348, 155.18796, 451.7293, 155.18796, 444.51126, 147.96991, 444.51126, 112.030075)
+
+[node name="LeftPillar4" type="Node2D" parent="Obstacles" unique_id=1238995769]
+position = Vector2(19, 273)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar4" unique_id=1863626841]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-11.4, -66, 11.4, -66, 19, -58.399994, 19, -7.600006, 11.4, 0, -11.4, 0, -19, -7.600006, -19, -58.399994)
+uv = PackedVector2Array(5.1127815, 155.18796, 22.255638, 155.18796, 27.969925, 160.90225, 27.969925, 199.09773, 22.255638, 204.81201, 5.1127815, 204.81201, -0.60150373, 199.09773, -0.60150373, 160.90225)
+
+[node name="RightPillar4" type="Node2D" parent="Obstacles" unique_id=868972790]
+position = Vector2(616, 273)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar4" unique_id=790619220]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-14.400024, -66, 14.400024, -66, 24, -56.399994, 24, -9.600006, 14.400024, 0, -14.400024, 0, -24, -9.600006, -24, -56.399994)
+uv = PackedVector2Array(451.7293, 155.18796, 473.38348, 155.18796, 480.6015, 162.406, 480.6015, 197.59396, 473.38348, 204.81201, 451.7293, 204.81201, 444.51126, 197.59396, 444.51126, 162.406)
+
+[node name="LeftPillar5" type="Node2D" parent="Obstacles" unique_id=660032612]
+position = Vector2(19, 342)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar5" unique_id=303337058]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-11.4, -69, 11.4, -69, 19, -61.399994, 19, -7.600006, 11.4, 0, -11.4, 0, -19, -7.600006, -19, -61.399994)
+uv = PackedVector2Array(5.1127815, 204.81201, 22.255638, 204.81201, 27.969925, 210.5263, 27.969925, 250.97743, 22.255638, 256.6917, 5.1127815, 256.6917, -0.60150373, 250.97743, -0.60150373, 210.5263)
+
+[node name="RightPillar5" type="Node2D" parent="Obstacles" unique_id=545469877]
+position = Vector2(616, 342)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar5" unique_id=1972286277]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-14.400024, -69, 14.400024, -69, 24, -59.399994, 24, -9.600006, 14.400024, 0, -14.400024, 0, -24, -9.600006, -24, -59.399994)
+uv = PackedVector2Array(451.7293, 204.81201, 473.38348, 204.81201, 480.6015, 212.03008, 480.6015, 249.47366, 473.38348, 256.6917, 451.7293, 256.6917, 444.51126, 249.47366, 444.51126, 212.03008)
+
+[node name="LeftPillar6" type="Node2D" parent="Obstacles" unique_id=869995718]
+position = Vector2(19, 410)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar6" unique_id=1850961952]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-11.4, -68, 11.4, -68, 19, -60.399994, 19, -7.600006, 11.4, 0, -11.4, 0, -19, -7.600006, -19, -60.399994)
+uv = PackedVector2Array(5.1127815, 256.6917, 22.255638, 256.6917, 27.969925, 262.406, 27.969925, 302.10526, 22.255638, 307.81955, 5.1127815, 307.81955, -0.60150373, 302.10526, -0.60150373, 262.406)
+
+[node name="RightPillar6" type="Node2D" parent="Obstacles" unique_id=1763732725]
+position = Vector2(616, 410)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar6" unique_id=732734894]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-14.400024, -68, 14.400024, -68, 24, -58.399994, 24, -9.600006, 14.400024, 0, -14.400024, 0, -24, -9.600006, -24, -58.399994)
+uv = PackedVector2Array(451.7293, 256.6917, 473.38348, 256.6917, 480.6015, 263.90976, 480.6015, 300.60147, 473.38348, 307.81955, 451.7293, 307.81955, 444.51126, 300.60147, 444.51126, 263.90976)
+
+[node name="LeftPillar7" type="Node2D" parent="Obstacles" unique_id=1944418457]
+position = Vector2(19, 480)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar7" unique_id=1158708251]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-11.4, -70, 11.4, -70, 19, -62.399994, 19, -7.600006, 11.4, 0, -11.4, 0, -19, -7.600006, -19, -62.399994)
+uv = PackedVector2Array(5.1127815, 307.81955, 22.255638, 307.81955, 27.969925, 313.5338, 27.969925, 354.73682, 22.255638, 360.4511, 5.1127815, 360.4511, -0.60150373, 354.73682, -0.60150373, 313.5338)
+
+[node name="RightPillar7" type="Node2D" parent="Obstacles" unique_id=1004729102]
+position = Vector2(616, 480)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar7" unique_id=1619226972]
+texture = ExtResource("2_lg81t")
+polygon = PackedVector2Array(-14.400024, -70, 14.400024, -70, 24, -60.399994, 24, -9.600006, 14.400024, 0, -14.400024, 0, -24, -9.600006, -24, -60.399994)
+uv = PackedVector2Array(451.7293, 307.81955, 473.38348, 307.81955, 480.6015, 315.0376, 480.6015, 353.23306, 473.38348, 360.4511, 451.7293, 360.4511, 444.51126, 353.23306, 444.51126, 315.0376)
+
+[node name="Walls" type="Node2D" parent="." unique_id=1486810026]
+editor_description = "Collision shapes are eroded for the player's torso hitbox."
+
+[node name="LeftPillars" type="StaticBody2D" parent="Walls" unique_id=562958326]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/LeftPillars" unique_id=745542900]
+polygon = PackedVector2Array(32.52, -42.81001, 32.52, 484.47, -36.26, 484.47, -36.26, -42.81001)
+
+[node name="RightPillars" type="StaticBody2D" parent="Walls" unique_id=214319611]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/RightPillars" unique_id=688404508]
+polygon = PackedVector2Array(672.52, -42.81001, 672.52, 484.47, 594.74, 484.47, 594.74, -42.81001)

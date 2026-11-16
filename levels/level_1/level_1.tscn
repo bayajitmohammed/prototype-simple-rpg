@@ -5,8 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bgvt8ryinri6r" path="res://enemies/soldier/soldier.tscn" id="3_epb64"]
 
 [node name="Level1" type="Node2D" unique_id=910038782]
+y_sort_enabled = true
 
 [node name="Lvl1" type="Sprite2D" parent="." unique_id=1078435461]
+z_index = -1
 position = Vector2(320, 240)
 scale = Vector2(1.33, 1.33)
 texture = ExtResource("1_k1ttk")
@@ -16,9 +18,47 @@ next_level_bottom = "Level0"
 next_level_right = "Level2"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1628332049]
+y_sort_enabled = true
 
 [node name="Grunt1" parent="Enemies" unique_id=32631299 instance=ExtResource("3_epb64")]
 position = Vector2(380, 220)
 
 [node name="Grunt2" parent="Enemies" unique_id=2026430395 instance=ExtResource("3_epb64")]
 position = Vector2(500, 330)
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=42536166]
+editor_description = "Each child origin = y-sort point."
+y_sort_enabled = true
+
+[node name="LeftTreeUpper" type="Node2D" parent="Obstacles" unique_id=1197841804]
+position = Vector2(66, 262)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftTreeUpper" unique_id=2066626459]
+texture = ExtResource("1_k1ttk")
+polygon = PackedVector2Array(-76, -162, 36, -162, 48, -146, 36, -118, 52, -98, 68, -78, 78, -54, 64, -30, 52, -10, 14, -6, 12, 2, -16, 2, -26, -12, -76, -12)
+uv = PackedVector2Array(-8.1203, 74.73684, 76.09022, 74.73684, 85.11278, 86.766914, 76.09022, 107.81954, 88.12029, 122.85713, 100.15037, 137.89473, 107.66917, 155.93983, 97.14285, 173.98495, 88.12029, 189.02255, 59.548866, 192.03006, 58.04511, 198.0451, 36.99248, 198.0451, 29.473684, 187.51878, -8.1203, 187.51878)
+
+[node name="LeftTreeLower" type="Node2D" parent="Obstacles" unique_id=886278671]
+position = Vector2(54, 436)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftTreeLower" unique_id=367918174]
+texture = ExtResource("1_k1ttk")
+polygon = PackedVector2Array(-64, -172, 32, -168, 40, -146, 48, -122, 60, -98, 72, -70, 76, -50, 56, -26, 16, -16, 10, 0, -10, 0, -64, -6)
+uv = PackedVector2Array(-8.1203, 198.0451, 64.06014, 201.05263, 70.07518, 217.59398, 76.09022, 235.63908, 85.11278, 253.6842, 94.13533, 274.73682, 97.14285, 289.7744, 82.105255, 307.81955, 52.03007, 315.33832, 47.518795, 327.3684, 32.4812, 327.3684, -8.1203, 322.85712)
+
+[node name="Walls" type="Node2D" parent="." unique_id=1363122597]
+editor_description = "Collision shapes are eroded for the player's torso hitbox."
+
+[node name="TopForest" type="StaticBody2D" parent="Walls" unique_id=222187616]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/TopForest" unique_id=1300613076]
+polygon = PackedVector2Array(672.52, -42.81001, 672.52, 62.470005, -36.26, 62.470005, -36.26, -42.81001)
+
+[node name="LeftForest" type="StaticBody2D" parent="Walls" unique_id=1921050327]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/LeftForest" unique_id=461694184]
+polygon = PackedVector2Array(93.27868, 57.19001, 95.01942, 92.00479, 101.50968, 100.65844, 89.31553, 129.11148, 113.91983, 159.86687, 129.18356, 178.94652, 132.3676, 186.5882, 125.31627, 198.6762, 114.15978, 217.27032, 96.81094, 226.9086, 79.14618, 242.04982, 78.03293, 262.47366, 88.49655, 283.4009, 96.49657, 307.4009, 108.78657, 331.9809, 119.80997, 357.70212, 120.03915, 358.84805, 106.15102, 375.51382, 73.77661, 407.8882, 64.20389, 484.47, -36.26, 484.47, -36.26, 57.19001)

@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://dkwkl5thb23vk" path="res://enemies/soldier/enemy2.png" id="4_o6tlx"]
 
 [node name="Level9" type="Node2D" unique_id=685244625]
+y_sort_enabled = true
 
 [node name="Lvl9" type="Sprite2D" parent="." unique_id=541081824]
+z_index = -1
 position = Vector2(320, 240)
 scale = Vector2(1.33, 1.33)
 texture = ExtResource("1_6nf2p")
@@ -17,6 +19,7 @@ next_level_top = "Level10"
 next_level_bottom = "Level8"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1207266107]
+y_sort_enabled = true
 
 [node name="ArmoredSoldier1" parent="Enemies" unique_id=32631299 instance=ExtResource("3_l6fl2")]
 position = Vector2(220, 130)
@@ -45,3 +48,152 @@ texture = ExtResource("4_o6tlx")
 speed = 60.0
 attack_damage = 20
 max_health = 10
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=475824641]
+editor_description = "Each child origin = y-sort point."
+y_sort_enabled = true
+
+[node name="LeftPillar1" type="Node2D" parent="Obstacles" unique_id=1279200592]
+position = Vector2(117, 75)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar1" unique_id=349144983]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -75, 16, -75, 24, -63, 24, -8, 16, 0, -15, 0, -23, -8, -23, -63)
+uv = PackedVector2Array(76.09022, -0.45112783, 99.39849, -0.45112783, 105.41353, 8.571428, 105.41353, 49.924812, 99.39849, 55.93985, 76.09022, 55.93985, 70.07518, 49.924812, 70.07518, 8.571428)
+
+[node name="RightPillar1" type="Node2D" parent="Obstacles" unique_id=1423671304]
+position = Vector2(542, 75)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar1" unique_id=1611450856]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -75, 16, -75, 24, -63, 24, -8, 16, 0, -15, 0, -23, -8, -23, -63)
+uv = PackedVector2Array(395.6391, -0.45112783, 418.94736, -0.45112783, 424.9624, 8.571428, 424.9624, 49.924812, 418.94736, 55.93985, 395.6391, 55.93985, 389.62405, 49.924812, 389.62405, 8.571428)
+
+[node name="LeftPillar2" type="Node2D" parent="Obstacles" unique_id=49996682]
+position = Vector2(117, 143)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar2" unique_id=1389013990]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -72, 16, -72, 24, -60, 24, -8, 16, 0, -15, 0, -23, -8, -23, -60)
+uv = PackedVector2Array(76.09022, 52.93233, 99.39849, 52.93233, 105.41353, 61.954887, 105.41353, 101.05262, 99.39849, 107.06766, 76.09022, 107.06766, 70.07518, 101.05262, 70.07518, 61.954887)
+
+[node name="RightPillar2" type="Node2D" parent="Obstacles" unique_id=2109370904]
+position = Vector2(542, 143)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar2" unique_id=572175550]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -72, 16, -72, 24, -60, 24, -8, 16, 0, -15, 0, -23, -8, -23, -60)
+uv = PackedVector2Array(395.6391, 52.93233, 418.94736, 52.93233, 424.9624, 61.954887, 424.9624, 101.05262, 418.94736, 107.06766, 395.6391, 107.06766, 389.62405, 101.05262, 389.62405, 61.954887)
+
+[node name="LeftPillar3" type="Node2D" parent="Obstacles" unique_id=916149971]
+position = Vector2(117, 211)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar3" unique_id=285301181]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -72, 16, -72, 24, -60, 24, -8, 16, 0, -15, 0, -23, -8, -23, -60)
+uv = PackedVector2Array(76.09022, 104.06014, 99.39849, 104.06014, 105.41353, 113.082695, 105.41353, 152.18044, 99.39849, 158.19548, 76.09022, 158.19548, 70.07518, 152.18044, 70.07518, 113.082695)
+
+[node name="RightPillar3" type="Node2D" parent="Obstacles" unique_id=1166560244]
+position = Vector2(542, 211)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar3" unique_id=1655324172]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -72, 16, -72, 24, -60, 24, -8, 16, 0, -15, 0, -23, -8, -23, -60)
+uv = PackedVector2Array(395.6391, 104.06014, 418.94736, 104.06014, 424.9624, 113.082695, 424.9624, 152.18044, 418.94736, 158.19548, 395.6391, 158.19548, 389.62405, 152.18044, 389.62405, 113.082695)
+
+[node name="LeftPillar4" type="Node2D" parent="Obstacles" unique_id=607448227]
+position = Vector2(117, 278)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar4" unique_id=523510777]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -71, 16, -71, 24, -59, 24, -8, 16, 0, -15, 0, -23, -8, -23, -59)
+uv = PackedVector2Array(76.09022, 155.18796, 99.39849, 155.18796, 105.41353, 164.21051, 105.41353, 202.55638, 99.39849, 208.57141, 76.09022, 208.57141, 70.07518, 202.55638, 70.07518, 164.21051)
+
+[node name="RightPillar4" type="Node2D" parent="Obstacles" unique_id=1497820427]
+position = Vector2(542, 278)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar4" unique_id=230663805]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -71, 16, -71, 24, -59, 24, -8, 16, 0, -15, 0, -23, -8, -23, -59)
+uv = PackedVector2Array(395.6391, 155.18796, 418.94736, 155.18796, 424.9624, 164.21051, 424.9624, 202.55638, 418.94736, 208.57141, 395.6391, 208.57141, 389.62405, 202.55638, 389.62405, 164.21051)
+
+[node name="LeftPillar5" type="Node2D" parent="Obstacles" unique_id=146700998]
+position = Vector2(117, 346)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar5" unique_id=1459151108]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -72, 16, -72, 24, -60, 24, -8, 16, 0, -15, 0, -23, -8, -23, -60)
+uv = PackedVector2Array(76.09022, 205.5639, 99.39849, 205.5639, 105.41353, 214.58646, 105.41353, 253.6842, 99.39849, 259.69925, 76.09022, 259.69925, 70.07518, 253.6842, 70.07518, 214.58646)
+
+[node name="RightPillar5" type="Node2D" parent="Obstacles" unique_id=526295834]
+position = Vector2(542, 346)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar5" unique_id=1158759166]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -72, 16, -72, 24, -60, 24, -8, 16, 0, -15, 0, -23, -8, -23, -60)
+uv = PackedVector2Array(395.6391, 205.5639, 418.94736, 205.5639, 424.9624, 214.58646, 424.9624, 253.6842, 418.94736, 259.69925, 395.6391, 259.69925, 389.62405, 253.6842, 389.62405, 214.58646)
+
+[node name="LeftPillar6" type="Node2D" parent="Obstacles" unique_id=2120710563]
+position = Vector2(117, 413)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar6" unique_id=1682726387]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -71, 16, -71, 24, -59, 24, -8, 16, 0, -15, 0, -23, -8, -23, -59)
+uv = PackedVector2Array(76.09022, 256.6917, 99.39849, 256.6917, 105.41353, 265.71426, 105.41353, 304.06015, 99.39849, 310.07516, 76.09022, 310.07516, 70.07518, 304.06015, 70.07518, 265.71426)
+
+[node name="RightPillar6" type="Node2D" parent="Obstacles" unique_id=1017586403]
+position = Vector2(542, 413)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar6" unique_id=1219541031]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -71, 16, -71, 24, -59, 24, -8, 16, 0, -15, 0, -23, -8, -23, -59)
+uv = PackedVector2Array(395.6391, 256.6917, 418.94736, 256.6917, 424.9624, 265.71426, 424.9624, 304.06015, 418.94736, 310.07516, 395.6391, 310.07516, 389.62405, 304.06015, 389.62405, 265.71426)
+
+[node name="LeftPillar7" type="Node2D" parent="Obstacles" unique_id=454641515]
+position = Vector2(117, 468)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar7" unique_id=1511178771]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -59, 16, -59, 24, -47, 24, -8, 16, 0, -15, 0, -23, -8, -23, -47)
+uv = PackedVector2Array(76.09022, 307.06766, 99.39849, 307.06766, 105.41353, 316.0902, 105.41353, 345.4135, 99.39849, 351.42856, 76.09022, 351.42856, 70.07518, 345.4135, 70.07518, 316.0902)
+
+[node name="RightPillar7" type="Node2D" parent="Obstacles" unique_id=750086327]
+position = Vector2(542, 468)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar7" unique_id=971744038]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -59, 16, -59, 24, -47, 24, -8, 16, 0, -15, 0, -23, -8, -23, -47)
+uv = PackedVector2Array(395.6391, 307.06766, 418.94736, 307.06766, 424.9624, 316.0902, 424.9624, 345.4135, 418.94736, 351.42856, 395.6391, 351.42856, 389.62405, 345.4135, 389.62405, 316.0902)
+
+[node name="LeftPillar8" type="Node2D" parent="Obstacles" unique_id=1330434541]
+position = Vector2(117, 484)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar8" unique_id=923504048]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -20, 16, -20, 24, -8, 24, -8, 16, 0, -15, 0, -23, -8, -23, -8)
+uv = PackedVector2Array(76.09022, 348.42105, 99.39849, 348.42105, 105.41353, 357.4436, 105.41353, 357.4436, 99.39849, 363.45862, 76.09022, 363.45862, 70.07518, 357.4436, 70.07518, 357.4436)
+
+[node name="RightPillar8" type="Node2D" parent="Obstacles" unique_id=679856753]
+position = Vector2(542, 484)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar8" unique_id=44564322]
+texture = ExtResource("1_6nf2p")
+polygon = PackedVector2Array(-15, -20, 16, -20, 24, -8, 24, -8, 16, 0, -15, 0, -23, -8, -23, -8)
+uv = PackedVector2Array(395.6391, 348.42105, 418.94736, 348.42105, 424.9624, 357.4436, 424.9624, 357.4436, 418.94736, 363.45862, 395.6391, 363.45862, 389.62405, 357.4436, 389.62405, 357.4436)
+
+[node name="Walls" type="Node2D" parent="." unique_id=1267383960]
+editor_description = "Collision shapes are eroded for the player's torso hitbox."
+
+[node name="LeftPillarsAndVoid" type="StaticBody2D" parent="Walls" unique_id=1448273400]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/LeftPillarsAndVoid" unique_id=402890760]
+polygon = PackedVector2Array(133.52, -42.81001, 133.52, 484.47, -36.26, 484.47, -36.26, -42.81001)
+
+[node name="RightPillarsAndVoid" type="StaticBody2D" parent="Walls" unique_id=11351185]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/RightPillarsAndVoid" unique_id=2057795870]
+polygon = PackedVector2Array(672.52, -42.81001, 672.52, 484.47, 522.74, 484.47, 522.74, -42.81001)

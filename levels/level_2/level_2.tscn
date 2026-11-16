@@ -4,9 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://ch83j3wiq6oii" path="res://levels/boundary.tscn" id="2_618ip"]
 [ext_resource type="PackedScene" uid="uid://bgvt8ryinri6r" path="res://enemies/soldier/soldier.tscn" id="3_618ip"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_618ip"]
+size = Vector2(4.7799997, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2p4p"]
+size = Vector2(4.7799997, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nbo2"]
+size = Vector2(4.7799997, 2)
+
 [node name="Level2" type="Node2D" unique_id=733423982]
+y_sort_enabled = true
 
 [node name="Lvl2" type="Sprite2D" parent="." unique_id=81927184]
+z_index = -1
 position = Vector2(320, 240)
 scale = Vector2(1.33, 1.33)
 texture = ExtResource("1_jniqj")
@@ -16,6 +27,7 @@ next_level_left = "Level1"
 next_level_right = "Level3"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1730306918]
+y_sort_enabled = true
 
 [node name="Grunt1" parent="Enemies" unique_id=32631299 instance=ExtResource("3_618ip")]
 position = Vector2(250, 200)
@@ -25,3 +37,75 @@ position = Vector2(420, 300)
 
 [node name="Grunt3" parent="Enemies" unique_id=1798213283 instance=ExtResource("3_618ip")]
 position = Vector2(520, 170)
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=1373013417]
+editor_description = "Each child origin = y-sort point."
+y_sort_enabled = true
+
+[node name="ConiferLeft" type="Node2D" parent="Obstacles" unique_id=1920101863]
+position = Vector2(154, 128)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/ConiferLeft" unique_id=326942545]
+texture = ExtResource("1_jniqj")
+polygon = PackedVector2Array(0, -76, 12, -62, 22, -44, 20, -24, 12, -8, 6, 0, -6, 0, -16, -12, -22, -28, -20, -48, -10, -64)
+uv = PackedVector2Array(115.187965, 38.646618, 124.21052, 49.17293, 131.72932, 62.706764, 130.22556, 77.74436, 124.21052, 89.77444, 119.69924, 95.789474, 110.67669, 95.789474, 103.15789, 86.766914, 98.646614, 74.73684, 100.15037, 59.699245, 107.66917, 47.669174)
+
+[node name="Collision" type="StaticBody2D" parent="Obstacles/ConiferLeft" unique_id=1125447401]
+editor_description = "Feet blocked in [P: (146.0, 112.0), S: (16.0, 16.0)] (world). Shape is offset for the torso hitbox."
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/ConiferLeft/Collision" unique_id=2036217213]
+position = Vector2(-1.8699951, -36.53)
+shape = SubResource("RectangleShape2D_618ip")
+
+[node name="ConiferMiddle" type="Node2D" parent="Obstacles" unique_id=1113196374]
+position = Vector2(454, 112)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/ConiferMiddle" unique_id=1442041400]
+texture = ExtResource("1_jniqj")
+polygon = PackedVector2Array(0, -52, 12, -42, 22, -26, 20, -8, 8, 0, -8, 0, -18, -8, -20, -26, -12, -42)
+uv = PackedVector2Array(340.7519, 44.661655, 349.77444, 52.18045, 357.29324, 64.210526, 355.78946, 77.74436, 346.7669, 83.7594, 334.73685, 83.7594, 327.21805, 77.74436, 325.7143, 64.210526, 331.7293, 52.18045)
+
+[node name="Collision" type="StaticBody2D" parent="Obstacles/ConiferMiddle" unique_id=104778599]
+editor_description = "Feet blocked in [P: (446.0, 98.0), S: (16.0, 14.0)] (world). Shape is offset for the torso hitbox."
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/ConiferMiddle/Collision" unique_id=216575450]
+position = Vector2(-1.8699951, -36.53)
+shape = SubResource("RectangleShape2D_b2p4p")
+
+[node name="ConiferRight" type="Node2D" parent="Obstacles" unique_id=828337128]
+position = Vector2(602, 132)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/ConiferRight" unique_id=1104599224]
+texture = ExtResource("1_jniqj")
+polygon = PackedVector2Array(0, -48, 12, -38, 20, -22, 16, -6, 6, 0, -6, 0, -18, -8, -20, -22, -12, -38)
+uv = PackedVector2Array(452.03006, 62.706764, 461.0526, 70.22556, 467.06766, 82.25564, 464.06015, 94.28571, 456.54135, 98.79698, 447.5188, 98.79698, 438.49625, 92.78195, 436.99246, 82.25564, 443.0075, 70.22556)
+
+[node name="Collision" type="StaticBody2D" parent="Obstacles/ConiferRight" unique_id=1646372216]
+editor_description = "Feet blocked in [P: (594.0, 116.0), S: (16.0, 16.0)] (world). Shape is offset for the torso hitbox."
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/ConiferRight/Collision" unique_id=2118067356]
+position = Vector2(-1.8699951, -36.53)
+shape = SubResource("RectangleShape2D_4nbo2")
+
+[node name="Walls" type="Node2D" parent="." unique_id=118491985]
+editor_description = "Collision shapes are eroded for the player's torso hitbox."
+
+[node name="TopForest" type="StaticBody2D" parent="Walls" unique_id=22436742]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/TopForest" unique_id=1471075459]
+polygon = PackedVector2Array(672.52, -42.81001, 672.52, 56.469994, -36.26, 56.469994, -36.26, -42.81001)
+
+[node name="BottomForest" type="StaticBody2D" parent="Walls" unique_id=228399991]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/BottomForest" unique_id=861422304]
+polygon = PackedVector2Array(287.18665, 369.0397, 307.37448, 385.19, 348.38596, 385.19, 378.5136, 377.1559, 407.562, 373.2828, 437.34097, 395.12073, 478.08194, 399.1948, 518.74866, 397.16144, 548.7011, 379.19, 577.37445, 379.19, 597.3509, 395.17114, 672.52, 397.05032, 672.52, 484.47, -36.26, 484.47, -36.26, 397.0503, 38.39402, 395.184, 78.75116, 385.0947, 98.32126, 377.26666, 138.03395, 385.2092, 178.1779, 381.1948, 218.40163, 383.206, 248.8298, 373.06323, 268.32126, 365.26666)

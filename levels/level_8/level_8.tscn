@@ -5,9 +5,20 @@
 [ext_resource type="PackedScene" uid="uid://bgvt8ryinri6r" path="res://enemies/soldier/soldier.tscn" id="3_etr8a"]
 [ext_resource type="Texture2D" uid="uid://dkwkl5thb23vk" path="res://enemies/soldier/enemy2.png" id="4_a6cqe"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etr8a"]
+size = Vector2(29.779999, 20.279999)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6cqe"]
+size = Vector2(22.779999, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irkbd"]
+size = Vector2(16.779999, 2)
+
 [node name="Level8" type="Node2D" unique_id=195765404]
+y_sort_enabled = true
 
 [node name="Lvl8" type="Sprite2D" parent="." unique_id=1394060679]
+z_index = -1
 position = Vector2(320, 240)
 scale = Vector2(1.33, 1.33)
 texture = ExtResource("1_boxt2")
@@ -17,6 +28,7 @@ next_level_top = "Level9"
 next_level_bottom = "Level7"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=444107512]
+y_sort_enabled = true
 
 [node name="ArmoredSoldier1" parent="Enemies" unique_id=32631299 instance=ExtResource("3_etr8a")]
 position = Vector2(150, 150)
@@ -38,3 +50,171 @@ texture = ExtResource("4_a6cqe")
 speed = 60.0
 attack_damage = 20
 max_health = 10
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=1858851972]
+editor_description = "Each child origin = y-sort point."
+y_sort_enabled = true
+
+[node name="LeftPillar1" type="Node2D" parent="Obstacles" unique_id=874893239]
+position = Vector2(19, 126)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar1" unique_id=213561735]
+texture = ExtResource("1_boxt2")
+polygon = PackedVector2Array(-16, -62, 11, -62, 19, -50, 19, -8, 11, 0, -16, 0, -24, -8, -24, -50)
+uv = PackedVector2Array(1.6541353, 47.669174, 21.954887, 47.669174, 27.969925, 56.69173, 27.969925, 88.270676, 21.954887, 94.28571, 1.6541353, 94.28571, -4.3609023, 88.270676, -4.3609023, 56.69173)
+
+[node name="LeftPillar2" type="Node2D" parent="Obstacles" unique_id=1469202130]
+position = Vector2(19, 190)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar2" unique_id=625014329]
+texture = ExtResource("1_boxt2")
+polygon = PackedVector2Array(-16, -68, 11, -68, 19, -56, 19, -8, 11, 0, -16, 0, -24, -8, -24, -56)
+uv = PackedVector2Array(1.6541353, 91.27819, 21.954887, 91.27819, 27.969925, 100.30074, 27.969925, 136.39098, 21.954887, 142.406, 1.6541353, 142.406, -4.3609023, 136.39098, -4.3609023, 100.30074)
+
+[node name="LeftPillar3" type="Node2D" parent="Obstacles" unique_id=1894851647]
+position = Vector2(19, 280)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar3" unique_id=1527387829]
+texture = ExtResource("1_boxt2")
+polygon = PackedVector2Array(-16, -68, 11, -68, 19, -56, 19, -8, 11, 0, -16, 0, -24, -8, -24, -56)
+uv = PackedVector2Array(1.6541353, 158.94736, 21.954887, 158.94736, 27.969925, 167.96991, 27.969925, 204.06013, 21.954887, 210.07518, 1.6541353, 210.07518, -4.3609023, 204.06013, -4.3609023, 167.96991)
+
+[node name="LeftPillar4" type="Node2D" parent="Obstacles" unique_id=1791784575]
+position = Vector2(19, 362)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar4" unique_id=549359401]
+texture = ExtResource("1_boxt2")
+polygon = PackedVector2Array(-16, -52, 11, -52, 19, -40, 19, -8, 11, 0, -16, 0, -24, -8, -24, -40)
+uv = PackedVector2Array(1.6541353, 232.63156, 21.954887, 232.63156, 27.969925, 241.65413, 27.969925, 265.71426, 21.954887, 271.7293, 1.6541353, 271.7293, -4.3609023, 265.71426, -4.3609023, 241.65413)
+
+[node name="LeftPillar5" type="Node2D" parent="Obstacles" unique_id=639470457]
+position = Vector2(19, 433)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftPillar5" unique_id=34242583]
+texture = ExtResource("1_boxt2")
+polygon = PackedVector2Array(-16, -75, 11, -75, 19, -63, 19, -8, 11, 0, -16, 0, -24, -8, -24, -63)
+uv = PackedVector2Array(1.6541353, 268.7218, 21.954887, 268.7218, 27.969925, 277.74435, 27.969925, 319.09772, 21.954887, 325.11276, 1.6541353, 325.11276, -4.3609023, 319.09772, -4.3609023, 277.74435)
+
+[node name="RightPillar1" type="Node2D" parent="Obstacles" unique_id=416248164]
+position = Vector2(615, 133)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar1" unique_id=1922496845]
+texture = ExtResource("1_boxt2")
+polygon = PackedVector2Array(-17, -63, 22, -63, 30, -51, 30, -8, 22, 0, -17, 0, -25, -8, -25, -51)
+uv = PackedVector2Array(449.02255, 52.18045, 478.34586, 52.18045, 484.3609, 61.203007, 484.3609, 93.53384, 478.34586, 99.54887, 449.02255, 99.54887, 443.0075, 93.53384, 443.0075, 61.203007)
+
+[node name="RightPillar2" type="Node2D" parent="Obstacles" unique_id=271769528]
+position = Vector2(615, 194)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar2" unique_id=405992188]
+texture = ExtResource("1_boxt2")
+polygon = PackedVector2Array(-17, -66, 22, -66, 30, -54, 30, -8, 22, 0, -17, 0, -25, -8, -25, -54)
+uv = PackedVector2Array(449.02255, 95.789474, 478.34586, 95.789474, 484.3609, 104.81202, 484.3609, 139.39848, 478.34586, 145.41353, 449.02255, 145.41353, 443.0075, 139.39848, 443.0075, 104.81202)
+
+[node name="RightPillar3" type="Node2D" parent="Obstacles" unique_id=793115469]
+position = Vector2(615, 281)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar3" unique_id=531600577]
+texture = ExtResource("1_boxt2")
+polygon = PackedVector2Array(-17, -63, 22, -63, 30, -51, 30, -8, 22, 0, -17, 0, -25, -8, -25, -51)
+uv = PackedVector2Array(449.02255, 163.45863, 478.34586, 163.45863, 484.3609, 172.48119, 484.3609, 204.81201, 478.34586, 210.82706, 449.02255, 210.82706, 443.0075, 204.81201, 443.0075, 172.48119)
+
+[node name="RightPillar4" type="Node2D" parent="Obstacles" unique_id=554025919]
+position = Vector2(615, 342)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar4" unique_id=1190821559]
+texture = ExtResource("1_boxt2")
+polygon = PackedVector2Array(-17, -66, 22, -66, 30, -54, 30, -8, 22, 0, -17, 0, -25, -8, -25, -54)
+uv = PackedVector2Array(449.02255, 207.06766, 478.34586, 207.06766, 484.3609, 216.09021, 484.3609, 250.67668, 478.34586, 256.6917, 449.02255, 256.6917, 443.0075, 250.67668, 443.0075, 216.09021)
+
+[node name="RightPillar5" type="Node2D" parent="Obstacles" unique_id=529584219]
+position = Vector2(615, 431)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar5" unique_id=1547158382]
+texture = ExtResource("1_boxt2")
+polygon = PackedVector2Array(-17, -63, 22, -63, 30, -51, 30, -8, 22, 0, -17, 0, -25, -8, -25, -51)
+uv = PackedVector2Array(449.02255, 276.2406, 478.34586, 276.2406, 484.3609, 285.26315, 484.3609, 317.59396, 478.34586, 323.609, 449.02255, 323.609, 443.0075, 317.59396, 443.0075, 285.26315)
+
+[node name="RightPillar6" type="Node2D" parent="Obstacles" unique_id=1159422769]
+position = Vector2(615, 481)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightPillar6" unique_id=1845582005]
+texture = ExtResource("1_boxt2")
+polygon = PackedVector2Array(-17, -55, 22, -55, 30, -43, 30, -8, 22, 0, -17, 0, -25, -8, -25, -43)
+uv = PackedVector2Array(449.02255, 319.8496, 478.34586, 319.8496, 484.3609, 328.87216, 484.3609, 355.18796, 478.34586, 361.203, 449.02255, 361.203, 443.0075, 355.18796, 443.0075, 328.87216)
+
+[node name="BackSpike" type="Node2D" parent="Obstacles" unique_id=893448633]
+position = Vector2(326, 225)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/BackSpike" unique_id=618410673]
+texture = ExtResource("1_boxt2")
+polygon = PackedVector2Array(-4, -74, 5, -74, 15, -55, 17, -25, 15, 0, -16, 0, -16, -30, -11, -55)
+uv = PackedVector2Array(241.50375, 113.082695, 248.27068, 113.082695, 255.78947, 127.368416, 257.29324, 149.9248, 255.78947, 168.7218, 232.4812, 168.7218, 232.4812, 146.1654, 236.2406, 127.368416)
+
+[node name="Campfire" type="Node2D" parent="Obstacles" unique_id=570032078]
+position = Vector2(331, 268)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/Campfire" unique_id=1416856990]
+texture = ExtResource("1_boxt2")
+polygon = PackedVector2Array(-13, -74, 1, -79, 15, -64, 22, -33, 22, -6, 10, 1, -11, 1, -25, -9, -22, -43)
+uv = PackedVector2Array(238.49625, 145.41353, 249.02255, 141.65413, 259.54886, 152.93233, 264.81204, 176.24059, 264.81204, 196.54134, 255.78947, 201.8045, 240, 201.8045, 229.47368, 194.2857, 231.72932, 168.7218)
+
+[node name="Collision" type="StaticBody2D" parent="Obstacles/Campfire" unique_id=1518612513]
+editor_description = "Feet blocked in [P: (310.0, 215.0), S: (41.0, 53.0)] (world). Shape is offset for the torso hitbox."
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Campfire/Collision" unique_id=1518716422]
+position = Vector2(-2.369995, -45.67)
+shape = SubResource("RectangleShape2D_etr8a")
+
+[node name="LeftSpike" type="Node2D" parent="Obstacles" unique_id=692950894]
+position = Vector2(280, 299)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/LeftSpike" unique_id=272639311]
+texture = ExtResource("1_boxt2")
+polygon = PackedVector2Array(1, -73, 12, -69, 19, -39, 19, -8, 10, 1, -14, 1, -22, -8, -19, -39, -9, -64)
+uv = PackedVector2Array(210.6767, 169.47368, 218.94737, 172.48119, 224.21053, 195.03758, 224.21053, 218.34586, 217.44362, 225.11278, 199.3985, 225.11278, 193.38347, 218.34586, 195.6391, 195.03758, 203.1579, 176.24059)
+
+[node name="Collision" type="StaticBody2D" parent="Obstacles/LeftSpike" unique_id=1794507816]
+editor_description = "Feet blocked in [P: (262.0, 280.0), S: (34.0, 20.0)] (world). Shape is offset for the torso hitbox."
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/LeftSpike/Collision" unique_id=1629545501]
+position = Vector2(-2.869995, -35.53)
+shape = SubResource("RectangleShape2D_a6cqe")
+
+[node name="RightSpike" type="Node2D" parent="Obstacles" unique_id=1363942575]
+position = Vector2(366, 303)
+
+[node name="Overlay" type="Polygon2D" parent="Obstacles/RightSpike" unique_id=2000145521]
+texture = ExtResource("1_boxt2")
+polygon = PackedVector2Array(-2, -76, 7, -72, 15, -41, 16, -8, 7, 1, -12, 1, -18, -12, -15, -45, -9, -68)
+uv = PackedVector2Array(273.0827, 170.22556, 279.8496, 173.23308, 285.86465, 196.54134, 286.61655, 221.35338, 279.8496, 228.12029, 265.5639, 228.12029, 261.05264, 218.34586, 263.30826, 193.53383, 267.81955, 176.24059)
+
+[node name="Collision" type="StaticBody2D" parent="Obstacles/RightSpike" unique_id=300115355]
+editor_description = "Feet blocked in [P: (352.0, 284.0), S: (28.0, 19.0)] (world). Shape is offset for the torso hitbox."
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/RightSpike/Collision" unique_id=155845107]
+position = Vector2(-1.8699951, -36.53)
+shape = SubResource("RectangleShape2D_irkbd")
+
+[node name="Walls" type="Node2D" parent="." unique_id=1484958350]
+editor_description = "Collision shapes are eroded for the player's torso hitbox."
+
+[node name="LeftPillars" type="StaticBody2D" parent="Walls" unique_id=833798177]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/LeftPillars" unique_id=1109567427]
+polygon = PackedVector2Array(30.52, -42.81001, 30.52, 484.47, -36.26, 484.47, -36.26, -42.81001)
+
+[node name="RightPillars" type="StaticBody2D" parent="Walls" unique_id=1695216709]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/RightPillars" unique_id=1730672373]
+polygon = PackedVector2Array(672.52, -42.81001, 672.52, 484.47, 593.74, 484.47, 593.74, -42.81001)

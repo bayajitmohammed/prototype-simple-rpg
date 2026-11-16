@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bh41aeoqq5y6w" path="res://player/health_pickup/health_pickup.tscn" id="4_s1skx"]
 
 [node name="Level10" type="Node2D" unique_id=1601864107]
+y_sort_enabled = true
 
 [node name="Lvl10" type="Sprite2D" parent="." unique_id=1795083764]
+z_index = -1
 position = Vector2(320, 240)
 scale = Vector2(1.33, 1.33)
 texture = ExtResource("1_6glgw")
@@ -16,12 +18,35 @@ texture = ExtResource("1_6glgw")
 next_level_bottom = "Level9"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1137886170]
+y_sort_enabled = true
 
 [node name="Boss" parent="Enemies" unique_id=524988487 instance=ExtResource("3_1xhd5")]
 position = Vector2(320, 230)
 scale = Vector2(0.4255, 0.4255)
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1884075947]
+y_sort_enabled = true
 
 [node name="HealthPickup1" parent="Pickups" unique_id=1466356536 instance=ExtResource("4_s1skx")]
 position = Vector2(240, 410)
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=542535608]
+editor_description = "Each child origin = y-sort point."
+y_sort_enabled = true
+
+[node name="Walls" type="Node2D" parent="." unique_id=1446227572]
+editor_description = "Collision shapes are eroded for the player's torso hitbox."
+
+[node name="LeftCliff" type="StaticBody2D" parent="Walls" unique_id=1245947907]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/LeftCliff" unique_id=13396074]
+polygon = PackedVector2Array(118.15746, -42.81001, 97.70483, 55.36265, 90.011, 242.21272, 133.48895, 283.6203, 142.34212, 381.00507, 133.72005, 484.47, -36.26, 484.47, -36.26, -42.81001)
+
+[node name="RightCliff" type="StaticBody2D" parent="Walls" unique_id=74121658]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/RightCliff" unique_id=779941452]
+polygon = PackedVector2Array(672.52, -42.81001, 672.52, 484.47, 444.11533, 484.47, 445.69547, 413.36313, 451.51605, 345.45627, 458.0244, 289.67035, 473.95374, 242.8194, 490.49942, 201.45523, 501.25967, 147.65399, 508.74, 83.53687, 508.74, -42.81001)
