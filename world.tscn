@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cng1sgugh83kn" path="res://levels/level_8/level_8.tscn" id="11_cbp6q"]
 [ext_resource type="PackedScene" uid="uid://bqd8kf34u48f5" path="res://levels/level_9/level_9.tscn" id="12_26xuy"]
 [ext_resource type="PackedScene" uid="uid://c6jlr0lx1p7r4" path="res://levels/level_10/level_10.tscn" id="13_bc84e"]
+[ext_resource type="Script" uid="uid://c5rl3rxbrvm6n" path="res://ui/touch_controls.gd" id="14_70uel"]
 
 [node name="World" type="Node2D" unique_id=1131332766]
 y_sort_enabled = true
@@ -76,3 +77,14 @@ scale = Vector2(0.935, 0.935)
 [node name="FireAudio" type="AudioStreamPlayer" parent="." unique_id=1476683246]
 
 [node name="BirdAudio" type="AudioStreamPlayer" parent="." unique_id=1596705298]
+
+[node name="TouchControls" type="CanvasLayer" parent="." unique_id=74387818]
+layer = 10
+
+[node name="TouchSurface" type="Control" parent="TouchControls" unique_id=668952944]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("14_70uel")

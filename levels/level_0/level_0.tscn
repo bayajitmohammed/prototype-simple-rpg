@@ -25,16 +25,16 @@ font_size = 13
 font_color = Color(0.2, 0.13, 0.08, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm2rq"]
-size = Vector2(15, 2)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qq2ud"]
 size = Vector2(22, 3)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qq2ud"]
+size = Vector2(34, 18.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wcjp7"]
-size = Vector2(20, 2)
+size = Vector2(32, 24.625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffevf"]
-size = Vector2(30, 2)
+size = Vector2(14, 2)
 
 [node name="Level0" type="Node2D" unique_id=811767690]
 y_sort_enabled = true
@@ -89,16 +89,17 @@ position = Vector2(189, 238)
 [node name="Canopy" type="Polygon2D" parent="Trees/MiddleTree" unique_id=699107980]
 editor_description = "Re-draws this part of the baked level image on top of the background so the player can walk behind it."
 texture = ExtResource("1_pgvl5")
-polygon = PackedVector2Array(-7, -141, 11, -146, 27, -141, 37, -130, 49, -119, 58, -98, 70, -72, 76, -58, 73, -45, 60, -33, 44, -27, 30, -24, 11, -20, 10, 0, -12, 0, -13, -20, -44, -25, -52, -33, -66, -45, -68, -64, -66, -84, -38, -98, -36, -123, -23, -130)
-uv = PackedVector2Array(136.2406, 72.4812, 149.77443, 68.7218, 161.8045, 72.4812, 169.3233, 80.75188, 178.34586, 89.02255, 185.11278, 104.81202, 194.13535, 124.36089, 198.64662, 134.8872, 196.39098, 144.66165, 186.61653, 153.6842, 174.58646, 158.19548, 164.06015, 160.45111, 149.77443, 163.45863, 149.02255, 178.49623, 132.4812, 178.49623, 131.72932, 163.45863, 108.42104, 159.69923, 102.406006, 153.6842, 91.87969, 144.66165, 90.37594, 130.37593, 91.87969, 115.33834, 112.93233, 104.81202, 114.43608, 86.01504, 124.21052, 80.75188)
+polygon = PackedVector2Array(-7, -141, 11, -146, 27, -141, 37, -130, 49, -119, 58, -98, 70, -72, 76, -58, 73, -45, 60, -33, 45, -26, 34, -19, 16, -16, 16, -6, 21, 0, -11, -1, -9, -5, -6, -12, -13, -19, -40, -15, -54, -28, -66, -38, -68, -64, -66, -84, -38, -98, -36, -123, -23, -130)
+uv = PackedVector2Array(136.2406, 72.4812, 149.77444, 68.7218, 161.8045, 72.4812, 169.3233, 80.75188, 178.34587, 89.02256, 185.11278, 104.81203, 194.13535, 124.3609, 198.64662, 134.88722, 196.39098, 144.66165, 186.61655, 153.6842, 175.33835, 158.94737, 167.06767, 164.21053, 153.53383, 166.46617, 153.53383, 173.98497, 157.29323, 178.49625, 133.23308, 177.74435, 134.73685, 174.73685, 136.99248, 169.47368, 131.72932, 164.21053, 111.42857, 167.21805, 100.90225, 157.4436, 91.8797, 149.92482, 90.375946, 130.37595, 91.8797, 115.33835, 112.932335, 104.81203, 114.43609, 86.01504, 124.210526, 80.75188)
 
 [node name="TrunkCollision" type="StaticBody2D" parent="Trees/MiddleTree" unique_id=1795583633]
 editor_description = "Thin blocker placed ~33px above the trunk base because the player's collision box is its torso, not its feet."
+position = Vector2(3, 0)
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/MiddleTree/TrunkCollision" unique_id=2031389886]
-position = Vector2(-1.5, -32)
+position = Vector2(-1, -22)
 shape = SubResource("RectangleShape2D_lm2rq")
 
 [node name="TopLeftTree" type="Node2D" parent="Trees" unique_id=1191101714]
@@ -108,16 +109,17 @@ position = Vector2(118, 89)
 [node name="Canopy" type="Polygon2D" parent="Trees/TopLeftTree" unique_id=177260187]
 editor_description = "Re-draws this part of the baked level image on top of the background so the player can walk behind it."
 texture = ExtResource("1_pgvl5")
-polygon = PackedVector2Array(-78, -89, 72, -89, 66, -67, 50, -49, 34, -39, 18, -32, 20, -17, 27, 0, -21, 0, -22, -29, -78, -29)
-uv = PackedVector2Array(29.473684, -0.45112783, 142.25563, -0.45112783, 137.74435, 16.090225, 125.71428, 29.62406, 113.684204, 37.142857, 101.65413, 42.406013, 103.15789, 53.68421, 108.42104, 66.46616, 72.330826, 66.46616, 71.57894, 44.661655, 29.473684, 44.661655)
+polygon = PackedVector2Array(-78, -89, 72, -89, 66, -67, 50, -49, 34, -39, 25, -31, 25, -23, 31, -20, 32, -16, 27, -13, 31, -5, 10, -11, 11.333317, 0, 7, 0, -7, -9, -21, -4, -15, -16, -17, -20, -25, -19, -78, -29)
+uv = PackedVector2Array(29.473694, -0.4511261, 142.25565, -0.4511261, 137.74435, 16.090225, 125.71429, 29.624054, 113.68421, 37.142853, 106.9173, 43.157898, 106.9173, 49.172943, 111.42857, 51.428574, 112.18045, 54.436096, 108.42105, 56.691727, 111.42857, 62.70677, 95.6391, 58.195488, 96.64159, 66.46616, 93.38345, 66.46616, 82.85715, 59.69925, 72.330826, 63.45865, 76.8421, 54.436096, 75.33835, 51.428574, 69.3233, 52.18045, 29.473694, 44.66165)
 
 [node name="TrunkCollision" type="StaticBody2D" parent="Trees/TopLeftTree" unique_id=1415655665]
 editor_description = "Thin blocker placed ~33px above the trunk base because the player's collision box is its torso, not its feet."
+position = Vector2(7, -3)
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/TopLeftTree/TrunkCollision" unique_id=488712034]
-position = Vector2(-5, -38.5)
+position = Vector2(0, -28.25)
 shape = SubResource("RectangleShape2D_qq2ud")
 
 [node name="TopRightTree" type="Node2D" parent="Trees" unique_id=597947152]
@@ -127,16 +129,17 @@ position = Vector2(531, 74)
 [node name="Canopy" type="Polygon2D" parent="Trees/TopRightTree" unique_id=1288020178]
 editor_description = "Re-draws this part of the baked level image on top of the background so the player can walk behind it."
 texture = ExtResource("1_pgvl5")
-polygon = PackedVector2Array(-58, -74, 25, -74, 25, 0, -14, 0, -15, -40, -31, -43, -49, -44, -58, -54)
-uv = PackedVector2Array(355.0376, -0.45112783, 417.4436, -0.45112783, 417.4436, 55.18797, 388.1203, 55.18797, 387.3684, 25.112782, 375.33835, 22.857141, 361.8045, 22.105263, 355.0376, 14.586466)
+polygon = PackedVector2Array(-58, -74, 25, -74, 25, 1, 12, 1, -1, -6, -17, -2, -9, -15, -15, -15, -9, -21, -8, -40, -15, -40, -31, -43, -49, -44, -58, -54)
+uv = PackedVector2Array(355.0376, -0.4511261, 417.4436, -0.4511261, 417.4436, 55.93985, 407.66916, 55.93985, 397.89474, 50.676697, 385.86465, 53.68421, 391.8797, 43.909775, 387.3684, 43.909775, 391.8797, 39.3985, 392.6316, 25.112778, 387.3684, 25.112778, 375.33835, 22.857147, 361.8045, 22.10527, 355.0376, 14.586472)
 
 [node name="TrunkCollision" type="StaticBody2D" parent="Trees/TopRightTree" unique_id=1570285996]
 editor_description = "Thin blocker placed ~33px above the trunk base because the player's collision box is its torso, not its feet."
+position = Vector2(5, -8)
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/TopRightTree/TrunkCollision" unique_id=1023431675]
-position = Vector2(-1, -34)
+position = Vector2(3, -21.3125)
 shape = SubResource("RectangleShape2D_wcjp7")
 
 [node name="TopRightBush" type="Node2D" parent="Trees" unique_id=700601634]
@@ -146,31 +149,32 @@ position = Vector2(527, 140)
 [node name="Canopy" type="Polygon2D" parent="Trees/TopRightBush" unique_id=424483525]
 editor_description = "Re-draws this part of the baked level image on top of the background so the player can walk behind it."
 texture = ExtResource("1_pgvl5")
-polygon = PackedVector2Array(-23, -42, -11, -50, 5, -52, 21, -47, 25, -28, 21, -12, 7, -4, -11, -5, -22, -14, -25, -30)
-uv = PackedVector2Array(378.34586, 73.23308, 387.3684, 67.21804, 399.3985, 65.71429, 411.42856, 69.47369, 414.4361, 83.7594, 411.42856, 95.789474, 400.90225, 101.804504, 387.3684, 101.05262, 379.09775, 94.28571, 376.8421, 82.25564)
+polygon = PackedVector2Array(-19, -39, -9, -41, 1, -40, 11, -37, 16, -26, 13, -13, 5, -7, -11, -8, -22, -14, -25, -30)
+uv = PackedVector2Array(381.3534, 75.48872, 388.8722, 73.98496, 396.391, 74.73685, 403.90976, 76.992485, 407.66916, 85.26316, 405.41354, 95.0376, 399.3985, 99.548874, 387.3684, 98.797, 379.09775, 94.28571, 376.8421, 82.25564)
 
 [node name="TrunkCollision" type="StaticBody2D" parent="Trees/TopRightBush" unique_id=351079251]
 editor_description = "Thin blocker placed ~33px above the trunk base because the player's collision box is its torso, not its feet."
+position = Vector2(-2, 0)
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trees/TopRightBush/TrunkCollision" unique_id=1654174581]
-position = Vector2(-2, -36)
+position = Vector2(-2, -8)
 shape = SubResource("RectangleShape2D_ffevf")
 
-[node name="ForestWalls" type="Node2D" parent="." unique_id=1155719043]
-editor_description = "Collision for the forest edges. Shifted for the player's torso hitbox: right-facing edges 7.5px left, left-facing edges 3.7px right."
+[node name="ForestOverlays" type="Node2D" parent="." unique_id=75481774]
+editor_description = "Foreground copies of the forest edges. Players can walk through them and appear behind the foliage."
 
-[node name="LeftForest" type="StaticBody2D" parent="ForestWalls" unique_id=1022731881]
-collision_layer = 2
-collision_mask = 0
+[node name="LeftForest" type="Polygon2D" parent="ForestOverlays" unique_id=198911573]
+editor_description = "Draws the matching part of the level image above the player; edit Points to refine the foliage outline."
+z_index = 1
+texture = ExtResource("1_pgvl5")
+polygon = PackedVector2Array(0, 0, 88, 0, 88, 56, 62, 64, 65, 98, 68, 110, 61, 118, 59, 127, 50, 139, 52, 149, 64, 167, 71, 202, 68, 225, 56, 244, 51, 255, 59, 266, 66, 292, 66, 319, 54, 344, 34, 352, 45, 365, 47, 376, 54, 414, 51, 432, 43, 449, 21, 457, 0, 459)
+uv = PackedVector2Array(-0.60150146, -0.4511261, 65.5639, -0.4511261, 65.5639, 41.654144, 46.015045, 47.669174, 48.270676, 73.233086, 50.52632, 82.25564, 45.263153, 88.270676, 43.7594, 95.0376, 36.992493, 104.06015, 38.496246, 111.57895, 47.5188, 125.112785, 52.78195, 151.42857, 50.52632, 168.7218, 41.503754, 183.00752, 37.744354, 191.2782, 43.7594, 199.54887, 49.022552, 219.09775, 49.022552, 239.3985, 40, 258.1955, 24.962402, 264.2105, 33.233093, 273.985, 34.736847, 282.2556, 40, 310.8271, 37.744354, 324.3609, 31.729324, 337.14288, 15.187973, 343.1579, -0.60150146, 344.66168)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ForestWalls/LeftForest" unique_id=620567901]
-polygon = PackedVector2Array(0, 0, 88, 0, 88, 56, 62, 64, 60, 140, 64, 200, 60, 250, 54, 300, 52, 350, 52, 410, 50, 480, 0, 480)
-
-[node name="RightForest" type="StaticBody2D" parent="ForestWalls" unique_id=1432349357]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ForestWalls/RightForest" unique_id=674756009]
-polygon = PackedVector2Array(556, 0, 640, 0, 640, 480, 576, 480, 576, 400, 588, 372, 560, 330, 562, 300, 574, 274, 582, 226, 582, 154, 556, 100)
+[node name="RightForest" type="Polygon2D" parent="ForestOverlays" unique_id=992451114]
+editor_description = "Draws the matching part of the level image above the player; edit Points to refine the foliage outline."
+z_index = 1
+texture = ExtResource("1_pgvl5")
+polygon = PackedVector2Array(559, 25, 573, 18, 578, 7, 640, 0, 640, 469, 621, 464, 607, 465, 573, 460, 570, 444, 577, 430, 575, 413, 583, 390, 588, 372, 556, 368, 553, 351, 560, 330, 557, 319, 562, 300, 574, 274, 581, 250, 576, 242, 582, 226, 592, 201, 589, 197, 572, 192, 573, 175, 575, 164, 582, 154, 575, 151, 578, 134, 583, 123, 563, 118, 545, 111, 546, 91, 548, 66)
+uv = PackedVector2Array(419.69925, 18.345871, 430.22556, 13.082703, 433.98495, 4.812027, 480.6015, -0.4511261, 480.6015, 352.18042, 466.3158, 348.42108, 455.78946, 349.1729, 430.22556, 345.4135, 427.9699, 333.38348, 433.2331, 322.85712, 431.7293, 310.0752, 437.74435, 292.78198, 441.50375, 279.2481, 417.4436, 276.2406, 415.18796, 263.45862, 420.4511, 247.66917, 418.1955, 239.3985, 421.9549, 225.11278, 430.97745, 205.5639, 436.2406, 187.5188, 432.4812, 181.50375, 436.9925, 169.47368, 444.5113, 150.6767, 442.25565, 147.66917, 429.4737, 143.90977, 430.22556, 131.12782, 431.7293, 122.85715, 436.9925, 115.33835, 431.7293, 113.08271, 433.98495, 100.30075, 437.74435, 92.030075, 422.70676, 88.270676, 409.17294, 83.00752, 409.9248, 67.969925, 411.42856, 49.172943)

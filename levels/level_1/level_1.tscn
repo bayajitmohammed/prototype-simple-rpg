@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://ch83j3wiq6oii" path="res://levels/boundary.tscn" id="2_45440"]
 [ext_resource type="PackedScene" uid="uid://bgvt8ryinri6r" path="res://enemies/soldier/soldier.tscn" id="3_epb64"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epb64"]
+size = Vector2(20, 4)
+
 [node name="Level1" type="Node2D" unique_id=910038782]
 y_sort_enabled = true
 
@@ -35,30 +38,39 @@ position = Vector2(66, 262)
 
 [node name="Overlay" type="Polygon2D" parent="Obstacles/LeftTreeUpper" unique_id=2066626459]
 texture = ExtResource("1_k1ttk")
-polygon = PackedVector2Array(-76, -162, 36, -162, 48, -146, 36, -118, 52, -98, 68, -78, 78, -54, 64, -30, 52, -10, 14, -6, 12, 2, -16, 2, -26, -12, -76, -12)
-uv = PackedVector2Array(-8.1203, 74.73684, 76.09022, 74.73684, 85.11278, 86.766914, 76.09022, 107.81954, 88.12029, 122.85713, 100.15037, 137.89473, 107.66917, 155.93983, 97.14285, 173.98495, 88.12029, 189.02255, 59.548866, 192.03006, 58.04511, 198.0451, 36.99248, 198.0451, 29.473684, 187.51878, -8.1203, 187.51878)
+polygon = PackedVector2Array(48, -146, 36, -118, 68, -78, 78, -54, 64, -30, 52, -10, 14, -6, 12, 2, -16, 2, -26, -12, -65.180016, -12, -65.180016, -162, 36, -162)
+uv = PackedVector2Array(85.11279, 86.76692, 76.090225, 107.81955, 100.150375, 137.89473, 107.669174, 155.93985, 97.14285, 173.98497, 88.1203, 189.02255, 59.548874, 192.03008, 58.045105, 198.04512, 36.992493, 198.04512, 29.473694, 187.5188, 0.015029907, 187.5188, 0.015029907, 74.73685, 76.090225, 74.73685)
+
+[node name="TrunkCollision" type="StaticBody2D" parent="Obstacles/LeftTreeUpper" unique_id=694148536]
+editor_description = "Small trunk blocker. Offset above the tree base to meet the player's torso collision box."
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/LeftTreeUpper/TrunkCollision" unique_id=1961830027]
+position = Vector2(8, -10)
+shape = SubResource("RectangleShape2D_epb64")
 
 [node name="LeftTreeLower" type="Node2D" parent="Obstacles" unique_id=886278671]
 position = Vector2(54, 436)
 
 [node name="Overlay" type="Polygon2D" parent="Obstacles/LeftTreeLower" unique_id=367918174]
 texture = ExtResource("1_k1ttk")
-polygon = PackedVector2Array(-64, -172, 32, -168, 40, -146, 48, -122, 60, -98, 72, -70, 76, -50, 56, -26, 16, -16, 10, 0, -10, 0, -64, -6)
-uv = PackedVector2Array(-8.1203, 198.0451, 64.06014, 201.05263, 70.07518, 217.59398, 76.09022, 235.63908, 85.11278, 253.6842, 94.13533, 274.73682, 97.14285, 289.7744, 82.105255, 307.81955, 52.03007, 315.33832, 47.518795, 327.3684, 32.4812, 327.3684, -8.1203, 322.85712)
+polygon = PackedVector2Array(32, -168, 40, -146, 48, -122, 60, -98, 72, -70, 76, -50, 56, -26, 16, -16, 10, 0, -10, 0, -53.180016, -4.7977753, -53.180016, -171.54916)
+uv = PackedVector2Array(64.06015, 201.05263, 70.075195, 217.59398, 76.090225, 235.6391, 85.11279, 253.6842, 94.135345, 274.73682, 97.14285, 289.7744, 82.105255, 307.81952, 52.030075, 315.33832, 47.5188, 327.3684, 32.4812, 327.3684, 0.015029907, 323.76105, 0.015029907, 198.3841)
 
-[node name="Walls" type="Node2D" parent="." unique_id=1363122597]
-editor_description = "Collision shapes are eroded for the player's torso hitbox."
+[node name="ForestOverlays" type="Node2D" parent="." unique_id=479635920]
+editor_description = "Foreground copies of the forest artwork. The player can move behind these areas."
 
-[node name="TopForest" type="StaticBody2D" parent="Walls" unique_id=222187616]
-collision_layer = 2
-collision_mask = 0
+[node name="TopForest" type="Polygon2D" parent="ForestOverlays" unique_id=869676434]
+editor_description = "Draws the matching part of the level image above the player; edit Points to refine the foliage outline."
+z_index = 1
+texture = ExtResource("1_k1ttk")
+polygon = PackedVector2Array(639, 53, 624, 49, 613, 55, 588, 48, 582, 60, 560, 73, 541, 82, 493, 76, 482, 81, 463, 77, 440, 54, 411, 59, 379, 73, 346, 75, 323, 72, 300, 80, 264, 63, 211, 67, 190, 76, 149, 73, 117, 56, 91, 44, 46, 46, 29, 44, 3, 42, 0.81998444, 0.6199875, 639.18, 0.6199875)
+uv = PackedVector2Array(479.8496, 39.3985, 468.5714, 36.390976, 460.30075, 40.902252, 441.50375, 35.6391, 436.9925, 44.66165, 420.4511, 54.436096, 406.1654, 61.20301, 370.0752, 56.691727, 361.8045, 60.451126, 347.5188, 57.44361, 330.22556, 40.150375, 308.42105, 43.909775, 284.3609, 54.436096, 259.54886, 55.93985, 242.25565, 53.68421, 224.9624, 59.69925, 197.89474, 46.917297, 158.04512, 49.924805, 142.25565, 56.691727, 111.42857, 54.436096, 87.36842, 41.654144, 67.81955, 32.631577, 33.984955, 34.135345, 21.203003, 32.631577, 1.6541443, 31.127823, 0.015029907, 0.015029907, 479.98495, 0.015029907)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/TopForest" unique_id=1300613076]
-polygon = PackedVector2Array(672.52, -42.81001, 672.52, 62.470005, -36.26, 62.470005, -36.26, -42.81001)
-
-[node name="LeftForest" type="StaticBody2D" parent="Walls" unique_id=1921050327]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/LeftForest" unique_id=461694184]
-polygon = PackedVector2Array(93.27868, 57.19001, 95.01942, 92.00479, 101.50968, 100.65844, 89.31553, 129.11148, 113.91983, 159.86687, 129.18356, 178.94652, 132.3676, 186.5882, 125.31627, 198.6762, 114.15978, 217.27032, 96.81094, 226.9086, 79.14618, 242.04982, 78.03293, 262.47366, 88.49655, 283.4009, 96.49657, 307.4009, 108.78657, 331.9809, 119.80997, 357.70212, 120.03915, 358.84805, 106.15102, 375.51382, 73.77661, 407.8882, 64.20389, 484.47, -36.26, 484.47, -36.26, 57.19001)
+[node name="LeftForest" type="Polygon2D" parent="ForestOverlays" unique_id=1382287491]
+editor_description = "Draws the matching part of the level image above the player; edit Points to refine the foliage outline."
+z_index = 1
+texture = ExtResource("1_k1ttk")
+polygon = PackedVector2Array(133, 114, 108, 129, 89.31553, 129.11148, 113.91983, 159.86687, 137, 200, 147, 222, 140, 235, 126, 241, 107, 252, 89, 258, 83, 252, 54, 246, 56, 252, 62, 262, 56, 271, 76, 275, 79, 291, 91, 316, 105, 333, 60, 359, 41, 382, 52, 394, 44, 420, 47, 435, 67, 444, 64.84013, 479.38004, 0.81998444, 479.38004, 0.81998444, 57.19001, 93.27868, 57.19001, 128, 57, 151, 88)
+uv = PackedVector2Array(99.3985, 85.26316, 80.6015, 96.54135, 66.55304, 96.625175, 85.052505, 119.74953, 102.406006, 149.92482, 109.924805, 166.46617, 104.66165, 176.2406, 94.135345, 180.75188, 79.849625, 189.02255, 66.315796, 193.53383, 61.804504, 189.02255, 40, 184.51128, 41.503754, 189.02255, 46.015045, 196.54135, 41.503754, 203.30827, 56.54135, 206.3158, 58.796997, 218.34587, 67.81955, 237.14285, 78.345856, 249.9248, 44.511276, 269.4737, 30.22557, 286.7669, 38.496246, 295.7895, 32.4812, 315.33832, 34.736847, 326.61652, 49.774445, 333.38348, 48.150482, 359.985, 0.015029907, 359.985, 0.015029907, 42.54889, 69.53284, 42.54889, 95.6391, 42.40602, 112.932335, 65.71429)

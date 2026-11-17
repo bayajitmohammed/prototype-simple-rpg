@@ -28,10 +28,10 @@ I was just starting out when I made it. Years later I rebuilt it from scratch (p
 
 ## How to play
 
-| Action | Keyboard | Gamepad |
-|---|---|---|
-| Move | `WASD` or arrow keys | Left stick |
-| Attack | `Space` | Bottom face button |
+| Action | Keyboard | Gamepad | Touch (landscape) |
+|---|---|---|---|
+| Move | `WASD` or arrow keys | Left stick | Drag the left pad |
+| Attack | `Space` | Bottom face button | Tap the right button |
 
 Walk off the edge of an area to move to the next one. Hearts heal you to full health. Defeat the boss to win.
 
@@ -58,6 +58,7 @@ The project has a **Web** export preset with thread support turned off, so the b
 1. Use the **standard** Godot editor. The .NET (C#) editor can't export to the web.
 2. Install the export templates: **Editor → Manage Export Templates → Download and Install**.
 3. Open **Project → Export**, select **Web** and click **Export Project**. The build goes to `build/web/`.
+   The player face is used for the browser and home screen icons. The loading screen is plain black.
 4. To test it locally, click the browser icon (**Remote Debug → Run in Browser**) in the top-right of the editor.
 5. To publish on itch.io, zip the *contents* of `build/web/`, upload the zip and tick **"This file will be played in the browser"**.
 

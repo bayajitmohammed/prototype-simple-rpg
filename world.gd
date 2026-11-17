@@ -40,7 +40,7 @@ func _ready() -> void:
 	for spawn_point in spawns_points_node.get_children():
 		spawn_points[spawn_point.name] = spawn_point
 
-	switch_level("Level0", "Bottom")
+	switch_level("Level0", "Bottom", spawn_points["Bottom"].global_position)
 
 func _process(delta: float) -> void:
 	if current_level == null or not is_forest_level(current_level.name):
@@ -54,11 +54,18 @@ func _process(delta: float) -> void:
 func is_forest_level(level_name: String) -> bool:
 	return level_name in ["Level0", "Level1", "Level2", "Level3", "Level4"]
 
-func switch_level(level_name: String, spawn_name: String) -> void:
-	# Move the player before enabling the next level so its exit triggers
-	# cannot see the player standing on the previous level's exit.
+func switch_level(level_name: String, spawn_name: String, exit_position: Vector2) -> void:
+	# Keep the position along the crossed edge and use the destination marker
+	# only for the inward distance, clear of its entry trigger.
 	var spawn: Marker2D = spawn_points[spawn_name]
-	player.global_position = spawn.global_position
+	var entry_position: Vector2 = spawn.global_position
+	if spawn_name == "Top" or spawn_name == "Bottom":
+		entry_position.x = exit_position.x
+	else:
+		entry_position.y = exit_position.y
+	# Move before enabling the next level so its triggers cannot see the
+	# player standing on the previous level's exit.
+	player.global_position = entry_position
 
 	if current_level:
 		current_level.visible = false
@@ -86,4 +93,3 @@ func switch_level(level_name: String, spawn_name: String) -> void:
 	elif not forest:
 		bird_audio.stop()
 		bird_delay = 0.0
-

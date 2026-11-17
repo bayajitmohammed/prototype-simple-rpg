@@ -48,27 +48,19 @@ max_health = 5
 editor_description = "Each child origin = y-sort point."
 y_sort_enabled = true
 
-[node name="TopRightCanopy" type="Node2D" parent="Obstacles" unique_id=892392240]
-position = Vector2(416, 70)
+[node name="ForestOverlays" type="Node2D" parent="." unique_id=904048987]
+editor_description = "Foreground copies of the forest artwork. The player can move behind these areas."
 
-[node name="Overlay" type="Polygon2D" parent="Obstacles/TopRightCanopy" unique_id=1494386771]
+[node name="TopForest" type="Polygon2D" parent="ForestOverlays" unique_id=1023917949]
+editor_description = "Draws the matching part of the level image above the player; edit Points to refine the foliage outline."
+z_index = 1
 texture = ExtResource("1_7n24t")
-polygon = PackedVector2Array(-16, -70, 74, -70, 72, -50, 54, -34, 24, -28, 16, 0, -16, 0)
-uv = PackedVector2Array(300.1504, -0.45112783, 367.81955, -0.45112783, 366.3158, 14.586466, 352.78195, 26.61654, 330.22556, 31.12782, 324.2105, 52.18045, 300.1504, 52.18045)
+polygon = PackedVector2Array(470, 31, 445, 37, 403, 25, 374, 25, 363, 35, 335, 44, 300, 32, 279, 33, 263, 30, 254, 38, 229, 26, 219, 25, 218, 42, 205, 62, 167.294, 68.47001, 142, 62, 128, 61, 98.51295, 56.469994, 93, 43, 99, 25, 87, 21, 85, 33, 76, 45, 60.517437, 56.47001, 0.81998444, 56.469994, 0.81998444, 0.6199875, 491, 0, 484, 21)
+uv = PackedVector2Array(352.78195, 22.857147, 333.98495, 27.368423, 302.406, 18.345871, 280.6015, 18.345871, 272.33084, 25.864655, 251.2782, 32.631577, 224.9624, 23.609024, 209.17293, 24.3609, 197.14285, 22.10527, 190.37595, 28.1203, 171.57895, 19.097748, 164.06015, 18.345871, 163.30827, 31.127823, 153.53383, 46.165405, 125.183464, 51.03009, 106.165405, 46.165405, 95.6391, 45.413544, 73.46838, 42.007507, 69.3233, 31.8797, 73.834595, 18.345871, 64.81204, 15.338348, 63.308273, 24.3609, 56.54135, 33.383453, 44.90033, 42.007523, 0.015029907, 42.007507, 0.015029907, 0.015029907, 368.57144, -0.4511261, 363.30826, 15.338348)
 
-[node name="Walls" type="Node2D" parent="." unique_id=57320666]
-editor_description = "Collision shapes are eroded for the player's torso hitbox."
-
-[node name="TopForest" type="StaticBody2D" parent="Walls" unique_id=1776714038]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/TopForest" unique_id=1794629934]
-polygon = PackedVector2Array(489.1658, -42.81001, 484.36697, -14.017079, 441.31415, 5.5523973, 431.6524, 36.469997, 398.03384, 36.469997, 338.03397, 42.470005, 288.2741, 42.470005, 248.27419, 36.469997, 203.294, 36.469997, 167.294, 68.47001, 128.51295, 68.47001, 98.51295, 56.469994, -36.26, 56.469994, -36.26, -42.81001)
-
-[node name="BottomForest" type="StaticBody2D" parent="Walls" unique_id=793321976]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/BottomForest" unique_id=1790872320]
-polygon = PackedVector2Array(322.77176, 379.19, 338.7718, 403.19, 392.67447, 403.19, 420.71414, 387.16733, 468.17026, 385.19, 491.90207, 385.19, 498.7668, 404.06802, 521.4855, 441.93243, 526.3469, 484.47, -36.26, 484.47, -36.26, 409.18997, 50.50041, 409.18997, 54.50041, 397.18997, 113.48822, 397.18997, 121.48823, 385.19, 166.69212, 385.19, 176.69212, 401.18997, 237.6954, 401.18997, 260.93057, 411.7514, 285.35168, 379.19)
+[node name="BottomForest" type="Polygon2D" parent="ForestOverlays" unique_id=1108134310]
+editor_description = "Draws the matching part of the level image above the player; edit Points to refine the foliage outline."
+z_index = 1
+texture = ExtResource("1_7n24t")
+polygon = PackedVector2Array(374, 381, 390, 403, 397, 432, 393, 463, 385, 478, 399, 478, 399, 468, 398, 452, 408, 429, 420, 409, 466, 387, 491.90207, 385.19, 513, 414, 522, 441, 525.7652, 479.38004, 0.81998444, 479.38004, 0.81998444, 428, 17, 416, 49, 409, 65, 406, 77, 416, 102, 406, 122, 395, 143, 387, 168, 386, 182, 416, 198, 422, 226, 409, 237.6954, 401.18997, 259, 395, 275, 403, 285, 385, 320, 365, 357, 354)
+uv = PackedVector2Array(280.6015, 286.015, 292.6316, 302.5564, 297.89474, 324.3609, 294.8872, 347.6692, 288.8722, 358.9474, 299.3985, 358.9474, 299.3985, 351.4286, 298.6466, 339.3985, 306.1654, 322.1053, 315.18796, 307.0677, 349.77444, 290.5263, 369.24966, 289.1654, 385.1128, 310.8271, 391.8797, 331.1278, 394.71066, 359.985, 0.015029907, 359.985, 0.015029907, 321.3534, 12.18045, 312.3308, 36.2406, 307.0677, 48.270676, 304.812, 57.293243, 312.3308, 76.090225, 304.812, 91.12782, 296.54138, 106.9173, 290.5263, 125.71429, 289.7744, 136.2406, 312.3308, 148.27068, 316.8421, 169.3233, 307.0677, 178.11685, 301.1955, 194.13535, 296.54138, 206.16542, 302.5564, 213.6842, 289.02258, 240, 273.985, 267.81955, 265.7143)

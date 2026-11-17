@@ -4,9 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://ch83j3wiq6oii" path="res://levels/boundary.tscn" id="2_h332y"]
 [ext_resource type="PackedScene" uid="uid://bgvt8ryinri6r" path="res://enemies/soldier/soldier.tscn" id="3_etr8a"]
 [ext_resource type="Texture2D" uid="uid://dkwkl5thb23vk" path="res://enemies/soldier/enemy2.png" id="4_a6cqe"]
+[ext_resource type="Shader" uid="uid://c53lgk66jyoii" path="res://common/campfire_flicker.gdshader" id="5_a6cqe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_irkbd"]
+shader = ExtResource("5_a6cqe")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etr8a"]
-size = Vector2(29.779999, 20.279999)
+size = Vector2(23.999992, 13.999992)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6cqe"]
 size = Vector2(22.779999, 2)
@@ -155,9 +159,10 @@ uv = PackedVector2Array(241.50375, 113.082695, 248.27068, 113.082695, 255.78947,
 position = Vector2(331, 268)
 
 [node name="Overlay" type="Polygon2D" parent="Obstacles/Campfire" unique_id=1416856990]
+material = SubResource("ShaderMaterial_irkbd")
 texture = ExtResource("1_boxt2")
-polygon = PackedVector2Array(-13, -74, 1, -79, 15, -64, 22, -33, 22, -6, 10, 1, -11, 1, -25, -9, -22, -43)
-uv = PackedVector2Array(238.49625, 145.41353, 249.02255, 141.65413, 259.54886, 152.93233, 264.81204, 176.24059, 264.81204, 196.54134, 255.78947, 201.8045, 240, 201.8045, 229.47368, 194.2857, 231.72932, 168.7218)
+polygon = PackedVector2Array(-6, -63, 0, -57, -1, -63, 1, -67, 9, -54, 11, -47, 13, -40, 16, -28, 18, -28, 19, -11, 9, -4, -11, -4, -22, -16, -16, -23, -15, -31, -12, -37, -16, -41, -15, -49)
+uv = PackedVector2Array(243.7594, 153.6842, 248.27068, 158.1955, 247.5188, 153.6842, 249.02255, 150.6767, 255.0376, 160.45113, 256.54135, 165.71428, 258.0451, 170.97745, 260.30075, 180, 261.8045, 180, 262.5564, 192.78195, 255.0376, 198.04512, 240, 198.04512, 231.72932, 189.02255, 236.2406, 183.7594, 236.99248, 177.74435, 239.24812, 173.23308, 236.2406, 170.22557, 236.99248, 164.21053)
 
 [node name="Collision" type="StaticBody2D" parent="Obstacles/Campfire" unique_id=1518612513]
 editor_description = "Feet blocked in [P: (310.0, 215.0), S: (41.0, 53.0)] (world). Shape is offset for the torso hitbox."
@@ -165,7 +170,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Campfire/Collision" unique_id=1518716422]
-position = Vector2(-2.369995, -45.67)
+position = Vector2(0, -37)
 shape = SubResource("RectangleShape2D_etr8a")
 
 [node name="LeftSpike" type="Node2D" parent="Obstacles" unique_id=692950894]

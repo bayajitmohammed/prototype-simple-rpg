@@ -9,6 +9,8 @@ var _fading: bool = false
 
 func _ready() -> void:
 	_player = get_tree().get_first_node_in_group("player") as CharacterBody2D
+	if DisplayServer.is_touchscreen_available():
+		$Panel/Label.text = "Drag left pad - Move\nTap ATTACK - Attack\nHead north to begin!"
 
 
 func _process(_delta: float) -> void:

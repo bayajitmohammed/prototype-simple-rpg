@@ -28,7 +28,7 @@ func _on_level_visibility_changed() -> void:
 		_set_monitoring(false)
 		return
 	# Turn the exits on only after a physics frame, once the player has been
-	# placed at the spawn point. Otherwise a trigger can report the player's
+	# placed along the entry edge. Otherwise a trigger can report the player's
 	# overlap from the previous level's exit (all levels share coordinates).
 	await get_tree().physics_frame
 	_set_monitoring(get_parent().visible)
@@ -55,7 +55,7 @@ func _handle_player_entered(body: Node2D, exit_point: String) -> void:
 	if target_level != "":
 		# Deferred: switching disables this level's physics bodies, which Godot
 		# does not allow from inside a physics callback such as body_entered.
-		world.switch_level.call_deferred(target_level, target_spawn)
+		world.switch_level.call_deferred(target_level, target_spawn, body.global_position)
 
 
 func _on_top_body_entered(body: Node2D) -> void:
