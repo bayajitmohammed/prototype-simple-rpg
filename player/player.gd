@@ -1,5 +1,21 @@
 extends CharacterBody2D
 
+const ATTACK_SOUNDS: Array[AudioStream] = [
+	preload("res://sounds/effects/attack_swoosh_01.ogg"),
+	preload("res://sounds/effects/attack_swoosh_02.ogg")
+]
+const HIT_SOUND: AudioStream = preload("res://sounds/effects/enemy_hit.ogg")
+const HURT_SOUND: AudioStream = preload("res://sounds/effects/player_hurt.ogg")
+const HEAL_SOUND: AudioStream = preload("res://sounds/effects/heart_pickup.ogg")
+const GRASS_STEPS: Array[AudioStream] = [
+	preload("res://sounds/effects/footstep_grass_01.ogg"),
+	preload("res://sounds/effects/footstep_grass_02.ogg")
+]
+const STONE_STEPS: Array[AudioStream] = [
+	preload("res://sounds/effects/footstep_stone_01.ogg"),
+	preload("res://sounds/effects/footstep_stone_02.ogg")
+]
+
 @export var speed: float = 100.0
 @export var max_health: int = 100
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -15,6 +31,7 @@ var dying = false
 var health: int = 100
 
 var noise = FastNoiseLite.new()
+var distance_since_step: float = 0.0
 
 func _ready() -> void:
 	health = max_health
@@ -30,7 +47,15 @@ func _physics_process(_delta):
 	
 	direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * speed
+	var previous_position: Vector2 = global_position
 	move_and_slide()
+	if velocity.length_squared() > 0.0:
+		distance_since_step += global_position.distance_to(previous_position)
+		if distance_since_step >= 28.0:
+			distance_since_step = 0.0
+			play_footstep()
+	else:
+		distance_since_step = 0.0
 	
 	
 	if velocity:
@@ -42,11 +67,20 @@ func _physics_process(_delta):
 
 	if Input.is_action_just_pressed("attack"):
 		attacking = true
+		GameAudio.play(get_tree(), ATTACK_SOUNDS.pick_random(), -8.0)
 		# Explicitly (re)start the Attack state. Relying only on the "attacking"
 		# advance expression can leave the tree parked on the last frame of a
 		# finished attack, so animation_finished never fires again.
 		var playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 		playback.start(&"Attack", true)
+
+func play_footstep() -> void:
+	var world: Node = get_parent()
+	var level: Node2D = world.get("current_level") as Node2D
+	var sounds: Array[AudioStream] = GRASS_STEPS
+	if level != null and not world.is_forest_level(level.name):
+		sounds = STONE_STEPS
+	GameAudio.play(get_tree(), sounds.pick_random(), -19.0)
 
 func frame_freeze(timescale: float, duration: float) -> void:
 	var tree: SceneTree = get_tree()
@@ -61,6 +95,7 @@ func hit_player(damage: int):
 	health -= damage
 	health = max(health, 0)
 	update_health_bar()
+	GameAudio.play(get_tree(), HURT_SOUND, -7.0)
 	if health <= 0:
 		dying = true
 
@@ -69,6 +104,7 @@ func update_health_bar():
 	tween.tween_property(health_bar, "value", health, 0.2)
 	
 func heal_to_full():
+	GameAudio.play(get_tree(), HEAL_SOUND, -8.0)
 	health = max_health
 	update_health_bar()
 
@@ -85,6 +121,6 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.has_method("hit_enemy"):
 		camera_2d.screen_shake(8, 0.5)
 		body.hit_enemy()
+		GameAudio.play(get_tree(), HIT_SOUND, -7.0)
 		body.play_hit_flash()
 		frame_freeze(0.2, 0.3)
-		

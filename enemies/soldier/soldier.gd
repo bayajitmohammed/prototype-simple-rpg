@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const ATTACK_SOUND: AudioStream = preload("res://sounds/effects/attack_swoosh_02.ogg")
+
 @export var texture: Texture2D
 @export var speed: float = 50.0
 @export var chase_range: float = 100.0
@@ -79,6 +81,7 @@ func wander(delta: float):
 	
 func start_attack_animation():
 	attacking = true
+	GameAudio.play(get_tree(), ATTACK_SOUND, -14.0)
 	can_attack = false
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true

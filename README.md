@@ -42,6 +42,7 @@ Walk off the edge of an area to move to the next one. Hearts heal you to full he
 - A boss fight with fireballs
 - Combat feedback: hit flash, screen shake and a short hit-stop on every hit
 - Health bars and heart pickups
+- Sound effects and environmental ambience, with no music
 - Depth sorting, so you can walk behind trees, rocks and pillars. The levels are single baked images, so this is done by redrawing parts of each image on top of the player.
 
 ## Running it yourself
@@ -69,3 +70,17 @@ All art is free art from [OpenGameArt.org](https://opengameart.org). I collected
 - Original sprites by **Stephen Challener (Redshrike)**
 
 If you made any of these assets and want the credit changed, please open an issue.
+
+### Sound assets
+
+Selected sounds from the following sources are included in `sounds/`. Each source lists its license as [CC0](https://creativecommons.org/publicdomain/zero/1.0/); credit is given with thanks to the creators.
+
+| Source | Creator | Files in this project |
+|---|---|---|
+| [RPG Audio](https://kenney.nl/assets/rpg-audio) | **Kenney** | `sounds/effects/attack_swoosh_01.ogg`, `attack_swoosh_02.ogg` |
+| [Impact Sounds](https://kenney.nl/assets/impact-sounds) | **Kenney** | `sounds/effects/footstep_*.ogg`, `enemy_hit.ogg`, `player_hurt.ogg` |
+| [Interface Sounds](https://kenney.nl/assets/interface-sounds) | **Kenney** | `sounds/effects/heart_pickup.ogg`, `menu_click.ogg` |
+| [Forest bird sounds](https://opengameart.org/content/forest-bird-sounds) | **pauliuw** | `sounds/ambience/forest_bird_01.wav` through `forest_bird_03.wav` |
+| [Loopable Dungeon Ambience](https://opengameart.org/content/loopable-dungeon-ambience) | **JaggedStone** | `sounds/ambience/dungeon_wind_drips.ogg` |
+| [Fireplace Sound loop](https://opengameart.org/content/fireplace-sound-loop) | **PagDev** | `sounds/ambience/campfire_crackle.wav` |
+| [Fireball](https://lpc.opengameart.org/content/fireball-1) | **Julien Matthey** | `sounds/effects/fireball_launch.wav` |

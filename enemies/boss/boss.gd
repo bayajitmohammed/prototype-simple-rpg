@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+const FIREBALL_SOUND: AudioStream = preload("res://sounds/effects/fireball_launch.wav")
+
 @export var max_health: int = 100
 @export var fireball_scene: PackedScene
 @onready var marker: Marker2D = $Marker2D
@@ -51,6 +53,7 @@ func shoot():
 	fireball.rotation += deg_to_rad(-90)
 	
 	get_tree().current_scene.add_child(fireball)
+	GameAudio.play(get_tree(), FIREBALL_SOUND, -13.0)
 
 
 func _on_timer_timeout() -> void:

@@ -70,3 +70,9 @@ position = Vector2(600, 224)
 [node name="Player" parent="." unique_id=2029301136 instance=ExtResource("2_fj7yv")]
 position = Vector2(332, 448)
 scale = Vector2(0.935, 0.935)
+
+[node name="AmbientAudio" type="AudioStreamPlayer" parent="." unique_id=2083876518]
+
+[node name="FireAudio" type="AudioStreamPlayer" parent="." unique_id=1476683246]
+
+[node name="BirdAudio" type="AudioStreamPlayer" parent="." unique_id=1596705298]
