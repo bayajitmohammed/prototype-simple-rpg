@@ -25,6 +25,7 @@ var health: int = 4
 var can_attack: bool = true
 var wander_direction: Vector2 = Vector2.ZERO
 var wander_timer: float = 0.0
+var hit_flash_tween: Tween
 
 
 func _ready() -> void:
@@ -36,6 +37,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if attacking or dying:
+		return
+	if not can_attack:
+		velocity = Vector2.ZERO
 		return
 	
 	var has_player = player != null
@@ -81,27 +85,40 @@ func wander(delta: float):
 	
 func start_attack_animation():
 	attacking = true
+	velocity = Vector2.ZERO
+	var playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
+	playback.start(&"Attack", true)
 	GameAudio.play(get_tree(), ATTACK_SOUND, -14.0)
 	can_attack = false
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
 	
-func hit_enemy():
-	health -= 1
-	health = max(health, 0)
+func hit_enemy() -> bool:
+	if dying or health <= 0:
+		return false
+	health = max(health - 1, 0)
 	attacking = false
 	if health <= 0:
 		dying = true
+		if hit_flash_tween and hit_flash_tween.is_running():
+			hit_flash_tween.kill()
+		if sprite.material:
+			sprite.material.set_shader_parameter("flash_value", 0.0)
+		$AttackArea.set_deferred("monitoring", false)
+		$CollisionShape2D.set_deferred("disabled", true)
+	return true
 		
 func play_hit_flash():
+	if dying:
+		return
 	var mat = sprite.material
-	
 	if not mat:
 		return
-	
-	var tween = create_tween()
-	tween.tween_property(mat, "shader_parameter/flash_value", 1.0, 0.05)
-	tween.tween_property(mat, "shader_parameter/flash_value", 0.0, 0.1)
+	if hit_flash_tween and hit_flash_tween.is_running():
+		hit_flash_tween.kill()
+	hit_flash_tween = create_tween()
+	hit_flash_tween.tween_property(mat, "shader_parameter/flash_value", 1.0, 0.05)
+	hit_flash_tween.tween_property(mat, "shader_parameter/flash_value", 0.0, 0.1)
 	
 
 
@@ -114,5 +131,5 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
+	if not dying and body.is_in_group("player"):
 		body.hit_player(attack_damage)

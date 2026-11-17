@@ -15,10 +15,23 @@ shader_parameter/flash_value = 0.0
 size = Vector2(248, 262)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4ron"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.08, 0.06, 0.08, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.49, 0.4, 0.31, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8d0e3"]
-bg_color = Color(0.7675539, 0.16914222, 0.28099167, 1)
+bg_color = Color(0.76, 0.15, 0.2, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="Boss" type="StaticBody2D" unique_id=524988487]
 scale = Vector2(0.66767514, 0.66767514)
@@ -43,10 +56,11 @@ wait_time = 2.0
 autostart = true
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=642837543]
-offset_left = -173.0141
-offset_top = -368.80142
-offset_right = 203.0141
-offset_bottom = -350.0
+offset_left = -150.0
+offset_top = 95.0
+offset_right = 150.0
+offset_bottom = 115.0
+mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_r4ron")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8d0e3")
 value = 30.0

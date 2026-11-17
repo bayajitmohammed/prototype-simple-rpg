@@ -118,9 +118,8 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
-	if body.has_method("hit_enemy"):
+	if body.has_method("hit_enemy") and body.hit_enemy():
 		camera_2d.screen_shake(8, 0.5)
-		body.hit_enemy()
 		GameAudio.play(get_tree(), HIT_SOUND, -7.0)
 		body.play_hit_flash()
 		frame_freeze(0.2, 0.3)

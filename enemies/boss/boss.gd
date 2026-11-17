@@ -16,9 +16,9 @@ func _ready() -> void:
 	health_bar.value = health
 	player = get_tree().get_first_node_in_group("player")
 
-func hit_enemy():
+func hit_enemy() -> bool:
 	if health <= 0:
-		return
+		return false
 	health -= 5
 	health = max(health, 0)
 	update_health_bar()
@@ -26,7 +26,8 @@ func hit_enemy():
 		# Deferred so the attacker's hit code (flash, frame freeze) finishes
 		# before this scene is removed from the tree.
 		get_tree().change_scene_to_file.call_deferred("res://ui/win/win.tscn")
-		
+	return true
+
 func play_hit_flash():
 	var mat = sprite.material
 	if not mat:
